@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SR LASH - Studio de Beleza no Recreio dos Bandeirantes. Especialista em extensão de cílios, design de sobrancelha, unhas, limpeza de pele e massagem. Agende seu horário!">
+    <meta name="keywords" content="cílios recreio, extensão de cílios, alongamento de cílios, sobrancelha recreio, manicure recreio, limpeza de pele recreio, massagem recreio, sr lash, studio de beleza recreio">
+    <meta name="author" content="Sr. Lash">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ciliosrecreio.com.br/">
+    <meta property="og:title" content="SR LASH | Studio de Beleza no Recreio dos Bandeirantes">
+    <meta property="og:description" content="Sua melhor versão começa por você. Extensão de cílios, design de sobrancelha, manicure, estética facial e corporal com atendimento premium.">
+    <meta property="og:image" content="assets/hero_bg.png">
+
+    <!-- Title -->
+    <title>SR LASH | Cílios, Sobrancelha e Estética no Recreio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#inicio" class="logo-link">
+                <div class="logo-brand">SR LASH</div>
+                <div class="logo-subtitle">STUDIO DE BELEZA</div>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#inicio" class="nav-link active">Início</a></li>
+                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                    <li><a href="#sobre" class="nav-link">O Studio</a></li>
+                    <li><a href="#galeria" class="nav-link">Galeria</a></li>
+                    <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+                    <li><a href="#faq" class="nav-link">Dúvidas</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20no%20Sr.%20Lash." target="_blank" class="btn btn-primary btn-header">
+                    <span>Agendar Horário</span>
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="hero-bg" style="background-image: linear-gradient(rgba(34, 22, 16, 0.4), rgba(34, 22, 16, 0.65)), url('assets/hero_bg.png');"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-tag">Sua melhor versão</span>
+                <h1 class="hero-title">Começa por você!</h1>
+                <p class="hero-text">Agende seu horário e viva uma experiência única de cuidado, bem-estar e autoestima em um ambiente preparado exclusivamente para você.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." target="_blank" class="btn btn-primary btn-lg">
+                        <span>Agende sua Experiência</span>
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="#servicos" class="btn btn-outline btn-lg">
+                        <span>Ver Serviços</span>
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span class="mouse-scroll">
+                <span class="mouse-wheel"></span>
+            </span>
+            <span class="scroll-text">Role para explorar</span>
+        </div>
+    </section>
+
+    <!-- Core Values / Pillars Section -->
+    <section class="pillars-section">
+        <div class="container">
+            <div class="pillars-grid">
+                <div class="pillar-item fade-in-up">
+                    <div class="pillar-icon">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Atendimento VIP</h3>
+                    <p>Cada detalhe da sua sessão é personalizado para atender ao seu estilo e realçar sua beleza natural.</p>
+                </div>
+                <div class="pillar-item fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="pillar-icon">
+                        <i class="fa-solid fa-shield-virus"></i>
+                    </div>
+                    <h3>Biossegurança Estrita</h3>
+                    <p>Materiais descartáveis, esterilização rigorosa e higiene impecável para sua total tranquilidade.</p>
+                </div>
+                <div class="pillar-item fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="pillar-icon">
+                        <i class="fa-solid fa-sparkles"></i>
+                    </div>
+                    <h3>Produtos Premium</h3>
+                    <p>Utilizamos apenas marcas de padrão internacional, hipoalergênicas e de alta durabilidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="services-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Nossos Cuidados</span>
+                <h2 class="section-title">Serviços Exclusivos</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">Oferecemos procedimentos de estética facial e corporal de alto padrão, focados em destacar seu brilho único.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1: Cílios -->
+                <div class="service-card fade-in-up">
+                    <div class="service-image-wrapper">
+                        <img src="assets/cilios.png" alt="Extensão de Cílios" class="service-image" loading="lazy">
+                        <div class="service-price">A partir de R$ 120</div>
+                    </div>
+                    <div class="service-info">
+                        <div class="service-category">Destaque</div>
+                        <h3>Extensão de Cílios</h3>
+                        <p class="service-desc">Técnicas personalizadas como Volume Russo, Fio a Fio Clássico e Lash Lifting. Olhar marcante, prático e com durabilidade excelente.</p>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> Fios ultra leves e macios</li>
+                            <li><i class="fa-solid fa-check"></i> Cola hipoalergênica certificada</li>
+                            <li><i class="fa-solid fa-check"></i> Isolamento perfeito dos cílios</li>
+                        </ul>
+                        <a href="https://wa.me/5521999999999?text=Olá!%20Gostaria%20de%20agendar%20o%20procedimento%20de%20Extensão%20de%20Cílios." target="_blank" class="btn btn-outline btn-full">
+                            <span>Agendar Cílios</span>
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2: Sobrancelha -->
+                <div class="service-card fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="service-image-wrapper">
+                        <img src="assets/sobrancelha.png" alt="Design de Sobrancelha" class="service-image" loading="lazy">
+                        <div class="service-price">A partir de R$ 45</div>
+                    </div>
+                    <div class="service-info">
+                        <div class="service-category">Facial</div>
+                        <h3>Design de Sobrancelhas</h3>
+                        <p class="service-desc">Design personalizado com mapeamento facial, aplicação de henna premium ou tintura, e reconstrução de sobrancelhas.</p>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> Visagismo facial exclusivo</li>
+                            <li><i class="fa-solid fa-check"></i> Pigmentos naturais e de alta fixação</li>
+                            <li><i class="fa-solid fa-check"></i> Pinçamento preciso e indolor</li>
+                        </ul>
+                        <a href="https://wa.me/5521999999999?text=Olá!%20Gostaria%20de%20agendar%20o%20procedimento%20de%20Design%20de%20Sobrancelhas." target="_blank" class="btn btn-outline btn-full">
+                            <span>Agendar Sobrancelha</span>
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3: Unhas -->
+                <div class="service-card fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="service-image-wrapper">
+                        <img src="assets/unha.png" alt="Manicure e Alongamento de Unhas" class="service-image" loading="lazy">
+                        <div class="service-price">A partir de R$ 60</div>
+                    </div>
+                    <div class="service-info">
+                        <div class="service-category">Manos & Pés</div>
+                        <h3>Manicure & Alongamento</h3>
+                        <p class="service-desc">Alongamento em gel, esmaltação em gel e manicure russa. Cuidado profundo com a saúde e estética das suas mãos e pés.</p>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> Blindagem e alongamento em gel</li>
+                            <li><i class="fa-solid fa-check"></i> Esmaltes importados de longa duração</li>
+                            <li><i class="fa-solid fa-check"></i> Esterilização em autoclave</li>
+                        </ul>
+                        <a href="https://wa.me/5521999999999?text=Olá!%20Gostaria%20de%20agendar%20o%20serviço%20de%20Unhas." target="_blank" class="btn btn-outline btn-full">
+                            <span>Agendar Unhas</span>
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 4: Limpeza de Pele -->
+                <div class="service-card fade-in-up">
+                    <div class="service-image-wrapper">
+                        <img src="assets/limpeza_pele.png" alt="Limpeza de Pele Profunda" class="service-image" loading="lazy">
+                        <div class="service-price">A partir de R$ 150</div>
+                    </div>
+                    <div class="service-info">
+                        <div class="service-category">Estética</div>
+                        <h3>Limpeza de Pele Profunda</h3>
+                        <p class="service-desc">Remoção de impurezas, cravos e células mortas, seguida de nutrição, hidratação profunda e fototerapia led facial.</p>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> Peeling ultrassônico indolor</li>
+                            <li><i class="fa-solid fa-check"></i> Máscara calmante e hidratante</li>
+                            <li><i class="fa-solid fa-check"></i> Adequado para todos os tipos de pele</li>
+                        </ul>
+                        <a href="https://wa.me/5521999999999?text=Olá!%20Gostaria%20de%20agendar%20uma%20Limpeza%20de%20Pele%20Profunda." target="_blank" class="btn btn-outline btn-full">
+                            <span>Agendar Limpeza</span>
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 5: Massagem -->
+                <div class="service-card fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="service-image-wrapper">
+                        <img src="assets/massagem.png" alt="Massagem Relaxante e Modeladora" class="service-image" loading="lazy">
+                        <div class="service-price">A partir de R$ 130</div>
+                    </div>
+                    <div class="service-info">
+                        <div class="service-category">Corporal</div>
+                        <h3>Massoterapia & Spa</h3>
+                        <p class="service-desc">Massagem relaxante terapêutica, drenagem linfática método exclusivo e massagem modeladora redutora.</p>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> Óleos essenciais e cromoterapia</li>
+                            <li><i class="fa-solid fa-check"></i> Alívio imediato do estresse mental</li>
+                            <li><i class="fa-solid fa-check"></i> Redução de medidas e retenção</li>
+                        </ul>
+                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20uma%20sessão%20de%20Massagem." target="_blank" class="btn btn-outline btn-full">
+                            <span>Agendar Massagem</span>
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 6: Cursos -->
+                <div class="service-card fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="service-image-wrapper">
+                        <img src="assets/curso.png" alt="Curso de Extensão de Cílios" class="service-image" loading="lazy">
+                        <div class="service-price">Vagas Abertas</div>
+                    </div>
+                    <div class="service-info">
+                        <div class="service-category">Carreira</div>
+                        <h3>Curso para Iniciantes</h3>
+                        <p class="service-desc">Aprenda do zero as técnicas mais procuradas de extensão de cílios. Aulas teóricas e práticas com mentoria pós-curso exclusiva.</p>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> Mentoria e suporte direto de Sueny Reis</li>
+                            <li><i class="fa-solid fa-check"></i> Modelos reais para prática e fotos</li>
+                            <li><i class="fa-solid fa-check"></i> Kit iniciante completo com certificado</li>
+                        </ul>
+                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20Curso%20de%20Cílios%20para%20Iniciantes." target="_blank" class="btn btn-outline btn-full">
+                            <span>Informações do Curso</span>
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience / About Us -->
+    <section id="sobre" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-images fade-in-up">
+                    <div class="about-img-large">
+                        <img src="assets/hero_bg.png" alt="Recepção do Studio" class="img-responsive rounded-corners" loading="lazy">
+                    </div>
+                    <div class="about-img-floating">
+                        <div class="stats-badge">
+                            <span class="number">5+</span>
+                            <span class="label">Anos Realçando Olhares</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content fade-in-up" style="animation-delay: 0.2s;">
+                    <span class="section-tag">Por trás do cuidado</span>
+                    <h2 class="section-title">Sobre a Sr. Lash</h2>
+                    <p class="about-lead">Sob a liderança de Sueny Reis, proporcionamos atendimentos express e cursos presenciais de capacitação para iniciantes.</p>
+                    <p>Localizado no Shopping Barra World, o Studio **Sr. Lash** destaca-se pelo acolhimento único, agilidade e pelo alto rigor nos processos. Entendemos que a beleza mora nos detalhes e na saúde de cada fio, de cada pele, de cada unha.</p>
+                    <p>Nossa equipe passa por treinamentos constantes com as melhores academias de *lash design* e estética do país, garantindo técnicas modernas, seguras e duradouras para nossas clientes.</p>
+                    
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fa-solid fa-certificate"></i>
+                            <div>
+                                <h4>Profissionais Certificadas</h4>
+                                <p>Especialistas formadas pelas maiores referências do mercado.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fa-solid fa-mug-hot"></i>
+                            <div>
+                                <h4>Espaço Aconchegante</h4>
+                                <p>Café gourmet, chás especiais e um ambiente de spa perfumado.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contato" class="btn btn-primary">
+                        <span>Fale Conosco</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Gallery -->
+    <section id="galeria" class="gallery-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Galeria</span>
+                <h2 class="section-title">Nossos Resultados</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">Confira fotos reais dos nossos procedimentos de cílios, sobrancelhas e estética realizados no estúdio.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="cilios">Cílios</button>
+                <button class="filter-btn" data-filter="sobrancelha">Sobrancelhas</button>
+                <button class="filter-btn" data-filter="unha">Unhas</button>
+                <button class="filter-btn" data-filter="estetica">Estética</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="cilios">
+                    <img src="assets/cilios.png" alt="Extensão de Cílios" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Volume Russo</h4>
+                        <span>Ver Detalhes</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="sobrancelha">
+                    <img src="assets/sobrancelha.png" alt="Design de Sobrancelha" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Design com Henna</h4>
+                        <span>Ver Detalhes</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="unha">
+                    <img src="assets/unha.png" alt="Unhas Decoradas" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Esmaltação em Gel</h4>
+                        <span>Ver Detalhes</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="estetica">
+                    <img src="assets/limpeza_pele.png" alt="Limpeza de Pele" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Fototerapia Facial</h4>
+                        <span>Ver Detalhes</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="estetica">
+                    <img src="assets/massagem.png" alt="Massagem Relaxante" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Massoterapia Corporal</h4>
+                        <span>Ver Detalhes</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="cilios">
+                    <img src="assets/hero_bg.png" alt="Ambiente do Studio" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Ambiente Sr. Lash</h4>
+                        <span>Ver Detalhes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="depoimentos" class="testimonials-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Clientes Satisfeitas</span>
+                <h2 class="section-title">O que dizem sobre nós</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="testimonials-carousel" id="testimonialsCarousel">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card active">
+                    <div class="testimonial-rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Faço meus cílios no Sr. Lash há mais de um ano e não troco por nada! A durabilidade é inacreditável e o espaço é super relaxante, quase durmo em todas as sessões. As meninas são umas queridas!"</p>
+                    <div class="testimonial-user">
+                        <div class="user-avatar"><i class="fa-solid fa-circle-user"></i></div>
+                        <div class="user-info">
+                            <h4>Mariana Vasconcellos</h4>
+                            <span>Moradora do Recreio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"A limpeza de pele com peeling ultrassônico deixou meu rosto radiante. E as unhas de gel que faço lá duram o mês inteiro sem lascar nada. Super indico o estúdio, nota 10 em limpeza e capricho!"</p>
+                    <div class="testimonial-user">
+                        <div class="user-avatar"><i class="fa-solid fa-circle-user"></i></div>
+                        <div class="user-info">
+                            <h4>Juliana M. Costa</h4>
+                            <span>Cliente VIP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"O design de sobrancelha com henna que fiz ficou perfeito, super natural e valorizou muito meu olhar. A massagem relaxante no final da semana virou meu ritual sagrado. Studio maravilhoso!"</p>
+                    <div class="testimonial-user">
+                        <div class="user-avatar"><i class="fa-solid fa-circle-user"></i></div>
+                        <div class="user-info">
+                            <h4>Beatriz S. Ramos</h4>
+                            <span>Cliente Mensal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-dots" id="carouselDots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Suas Dúvidas</span>
+                <h2 class="section-title">Perguntas Frequentes</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Quanto tempo dura a extensão de cílios?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A extensão dura em média de 30 a 45 dias, acompanhando o ciclo natural de crescimento dos seus cílios. No entanto, para manter o olhar sempre preenchido e perfeito, recomendamos realizar a manutenção entre 15 e 21 dias.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>A extensão de cílios danifica os meus fios naturais?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Não. Quando aplicada por uma profissional certificada que respeita a espessura, peso e comprimento ideais para o seu fio natural, e realiza o isolamento correto, seus cílios naturais continuam saudáveis e crescendo normalmente.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Quais são os cuidados após aplicar os cílios?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Evite molhar nas primeiras 24 horas para garantir a secagem da cola; não use rímel; evite demaquilantes à base de óleo na região dos olhos; não esfregue os olhos com força; e escove-os diariamente com a escovinha higienizada fornecida pelo estúdio.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Preciso agendar horário ou atendem por ordem de chegada?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Trabalhamos exclusivamente com agendamento prévio. Isso garante que reservemos o tempo ideal para sua sessão com total tranquilidade, conforto e sem esperas desnecessárias.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location -->
+    <section id="contato" class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info fade-in-up">
+                    <span class="section-tag">Contato & Localização</span>
+                    <h2 class="section-title">Venha Nos Visitar</h2>
+                    <p class="contact-lead">Estamos prontas para te receber no coração do Recreio dos Bandeirantes.</p>
+                    
+                    <ul class="contact-list">
+                        <li>
+                            <div class="contact-icon-box"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <h4>Endereço</h4>
+                                <p>Av. Alfredo Baltazar da Silveira, 520, Loja 108<br>Shopping Barra World (Setor Holanda) - Recreio dos Bandeirantes, RJ</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon-box"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <h4>WhatsApp / Telefone</h4>
+                                <p><a href="https://wa.me/5521977226901">(21) 97722-6901</a></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon-box"><i class="fa-solid fa-clock"></i></div>
+                            <div>
+                                <h4>Horário de Atendimento</h4>
+                                <p>Segunda a Sábado: 09h às 19h<br>Domingos: Fechado</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="social-links-wrapper">
+                        <h4>Siga-nos no Instagram</h4>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/ciliosrecreio.lashes/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://wa.me/5521977226901" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-map-wrapper fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="map-container">
+                        <!-- Custom styled maps placeholder or iframe -->
+                        <iframe src="https://maps.google.com/maps?q=Shopping%20Barra%20World,%20Av.%20Alfredo%20Baltazar%20da%20Silveira,%20520,%20Recreio%20dos%20Bandeirantes&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>SR LASH</h3>
+                    <p>Studio de Beleza & Autocuidado</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#sobre">O Studio</a></li>
+                        <li><a href="#galeria">Resultados</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services-list">
+                    <h4>Procedimentos</h4>
+                    <ul>
+                        <li><a href="#servicos">Cílios</a></li>
+                        <li><a href="#servicos">Sobrancelhas</a></li>
+                        <li><a href="#servicos">Unhas</a></li>
+                        <li><a href="#servicos">Estética</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 SR LASH. Todos os direitos reservados. ciliosrecreio.com.br</p>
+                <p class="developer-credit">Desenvolvido com carinho para realçar sua essência.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20no%20Sr.%20Lash." target="_blank" class="whatsapp-floating" aria-label="Falar no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="tooltip-text">Agende Agora</span>
+    </a>
+
+    <!-- Lightbox for Gallery (Modal) -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" alt="Visualização em tamanho cheio">
+        <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
