@@ -34,8 +34,7 @@
     <header class="main-header">
         <div class="header-container">
             <a href="#inicio" class="logo-link">
-                <div class="logo-brand">SR LASH</div>
-                <div class="logo-subtitle">STUDIO DE BELEZA</div>
+                <img src="assets/logo_gold.png" alt="SR LASH Logo" class="logo-img" style="height: 48px; object-fit: contain;">
             </a>
             
             <nav class="nav-menu" id="navMenu">
@@ -69,7 +68,7 @@
 
     <!-- Hero Section -->
     <section id="inicio" class="hero-section">
-        <div class="hero-bg" style="background-image: linear-gradient(rgba(34, 22, 16, 0.4), rgba(34, 22, 16, 0.65)), url('assets/hero_bg.png');"></div>
+        <div class="hero-bg" style="background-image: linear-gradient(rgba(34, 22, 16, 0.4), rgba(34, 22, 16, 0.65)), url('assets/neon_sign.jpg');"></div>
         <div class="hero-container">
             <div class="hero-content">
                 <span class="hero-tag">Sua melhor versão</span>
@@ -92,6 +91,46 @@
                 <span class="mouse-wheel"></span>
             </span>
             <span class="scroll-text">Role para explorar</span>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Carousel Section (Most Liked Photos) -->
+    <section class="insta-carousel-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Instagram @ciliosrecreio.lashes</span>
+                <h2 class="section-title">Mais Curtidas no Feed</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="insta-carousel-wrapper">
+                <div class="insta-carousel" id="instaCarousel">
+                    <div class="insta-slide active">
+                        <img src="assets/neon_sign.jpg" alt="Espaço Sr. Lash">
+                        <div class="insta-slide-info">
+                            <span class="likes"><i class="fa-solid fa-heart"></i> 450+ curtidas</span>
+                            <p>Nosso espaço foi decorado com carinho para oferecer o máximo conforto a você!</p>
+                        </div>
+                    </div>
+                    <div class="insta-slide">
+                        <img src="assets/eye_lash_brow.jpg" alt="Cílios e Sobrancelhas">
+                        <div class="insta-slide-info">
+                            <span class="likes"><i class="fa-solid fa-heart"></i> 320+ curtidas</span>
+                            <p>Design de sobrancelhas e cílios fio a fio que realçam seu olhar natural.</p>
+                        </div>
+                    </div>
+                    <div class="insta-slide">
+                        <img src="assets/feet_nails.jpg" alt="Manicure e Pedicure">
+                        <div class="insta-slide-info">
+                            <span class="likes"><i class="fa-solid fa-heart"></i> 210+ curtidas</span>
+                            <p>Cuidado profundo e esmaltação perfeita para as suas unhas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="insta-prev" id="instaPrev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="insta-next" id="instaNext" aria-label="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
         </div>
     </section>
 
@@ -138,7 +177,7 @@
                 <!-- Service 1: Cílios -->
                 <div class="service-card fade-in-up">
                     <div class="service-image-wrapper">
-                        <img src="assets/cilios.png" alt="Extensão de Cílios" class="service-image" loading="lazy">
+                        <img src="assets/eye_lash_brow.jpg" alt="Extensão de Cílios" class="service-image" loading="lazy">
                         <div class="service-price">A partir de R$ 120</div>
                     </div>
                     <div class="service-info">
@@ -150,7 +189,7 @@
                             <li><i class="fa-solid fa-check"></i> Cola hipoalergênica certificada</li>
                             <li><i class="fa-solid fa-check"></i> Isolamento perfeito dos cílios</li>
                         </ul>
-                        <a href="https://wa.me/5521999999999?text=Olá!%20Gostaria%20de%20agendar%20o%20procedimento%20de%20Extensão%20de%20Cílios." target="_blank" class="btn btn-outline btn-full">
+                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20o%20procedimento%20de%20Extensão%20de%20Cílios." target="_blank" class="btn btn-outline btn-full">
                             <span>Agendar Cílios</span>
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
@@ -160,7 +199,7 @@
                 <!-- Service 2: Sobrancelha -->
                 <div class="service-card fade-in-up" style="animation-delay: 0.1s;">
                     <div class="service-image-wrapper">
-                        <img src="assets/sobrancelha.png" alt="Design de Sobrancelha" class="service-image" loading="lazy">
+                        <img src="assets/eye_lash_brow.jpg" alt="Design de Sobrancelha" class="service-image" loading="lazy">
                         <div class="service-price">A partir de R$ 45</div>
                     </div>
                     <div class="service-info">
@@ -172,7 +211,7 @@
                             <li><i class="fa-solid fa-check"></i> Pigmentos naturais e de alta fixação</li>
                             <li><i class="fa-solid fa-check"></i> Pinçamento preciso e indolor</li>
                         </ul>
-                        <a href="https://wa.me/5521999999999?text=Olá!%20Gostaria%20de%20agendar%20o%20procedimento%20de%20Design%20de%20Sobrancelhas." target="_blank" class="btn btn-outline btn-full">
+                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20o%20procedimento%20de%20Design%20de%20Sobrancelhas." target="_blank" class="btn btn-outline btn-full">
                             <span>Agendar Sobrancelha</span>
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
@@ -182,7 +221,7 @@
                 <!-- Service 3: Unhas -->
                 <div class="service-card fade-in-up" style="animation-delay: 0.2s;">
                     <div class="service-image-wrapper">
-                        <img src="assets/unha.png" alt="Manicure e Alongamento de Unhas" class="service-image" loading="lazy">
+                        <img src="assets/feet_nails.jpg" alt="Manicure e Alongamento de Unhas" class="service-image" loading="lazy">
                         <div class="service-price">A partir de R$ 60</div>
                     </div>
                     <div class="service-info">
@@ -194,7 +233,7 @@
                             <li><i class="fa-solid fa-check"></i> Esmaltes importados de longa duração</li>
                             <li><i class="fa-solid fa-check"></i> Esterilização em autoclave</li>
                         </ul>
-                        <a href="https://wa.me/5521999999999?text=Olá!%20Gostaria%20de%20agendar%20o%20serviço%20de%20Unhas." target="_blank" class="btn btn-outline btn-full">
+                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20o%20serviço%20de%20Unhas." target="_blank" class="btn btn-outline btn-full">
                             <span>Agendar Unhas</span>
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
@@ -204,7 +243,7 @@
                 <!-- Service 4: Limpeza de Pele -->
                 <div class="service-card fade-in-up">
                     <div class="service-image-wrapper">
-                        <img src="assets/limpeza_pele.png" alt="Limpeza de Pele Profunda" class="service-image" loading="lazy">
+                        <img src="assets/neon_sign.jpg" alt="Limpeza de Pele Profunda" class="service-image" loading="lazy">
                         <div class="service-price">A partir de R$ 150</div>
                     </div>
                     <div class="service-info">
@@ -216,7 +255,7 @@
                             <li><i class="fa-solid fa-check"></i> Máscara calmante e hidratante</li>
                             <li><i class="fa-solid fa-check"></i> Adequado para todos os tipos de pele</li>
                         </ul>
-                        <a href="https://wa.me/5521999999999?text=Olá!%20Gostaria%20de%20agendar%20uma%20Limpeza%20de%20Pele%20Profunda." target="_blank" class="btn btn-outline btn-full">
+                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20uma%20Limpeza%20de%20Pele%20Profunda." target="_blank" class="btn btn-outline btn-full">
                             <span>Agendar Limpeza</span>
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
@@ -226,7 +265,7 @@
                 <!-- Service 5: Massagem -->
                 <div class="service-card fade-in-up" style="animation-delay: 0.1s;">
                     <div class="service-image-wrapper">
-                        <img src="assets/massagem.png" alt="Massagem Relaxante e Modeladora" class="service-image" loading="lazy">
+                        <img src="assets/neon_sign.jpg" alt="Massagem Relaxante e Modeladora" class="service-image" loading="lazy">
                         <div class="service-price">A partir de R$ 130</div>
                     </div>
                     <div class="service-info">
@@ -248,7 +287,7 @@
                 <!-- Service 6: Cursos -->
                 <div class="service-card fade-in-up" style="animation-delay: 0.2s;">
                     <div class="service-image-wrapper">
-                        <img src="assets/curso.png" alt="Curso de Extensão de Cílios" class="service-image" loading="lazy">
+                        <img src="assets/eye_lash_brow.jpg" alt="Curso de Extensão de Cílios" class="service-image" loading="lazy">
                         <div class="service-price">Vagas Abertas</div>
                     </div>
                     <div class="service-info">
@@ -276,7 +315,7 @@
             <div class="about-grid">
                 <div class="about-images fade-in-up">
                     <div class="about-img-large">
-                        <img src="assets/hero_bg.png" alt="Recepção do Studio" class="img-responsive rounded-corners" loading="lazy">
+                        <img src="assets/neon_sign.jpg" alt="Recepção do Studio" class="img-responsive rounded-corners" loading="lazy">
                     </div>
                     <div class="about-img-floating">
                         <div class="stats-badge">
@@ -340,42 +379,42 @@
             <!-- Gallery Grid -->
             <div class="gallery-grid">
                 <div class="gallery-item" data-category="cilios">
-                    <img src="assets/cilios.png" alt="Extensão de Cílios" loading="lazy">
+                    <img src="assets/eye_lash_brow.jpg" alt="Extensão de Cílios" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Volume Russo</h4>
                         <span>Ver Detalhes</span>
                     </div>
                 </div>
                 <div class="gallery-item" data-category="sobrancelha">
-                    <img src="assets/sobrancelha.png" alt="Design de Sobrancelha" loading="lazy">
+                    <img src="assets/eye_lash_brow.jpg" alt="Design de Sobrancelha" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Design com Henna</h4>
                         <span>Ver Detalhes</span>
                     </div>
                 </div>
                 <div class="gallery-item" data-category="unha">
-                    <img src="assets/unha.png" alt="Unhas Decoradas" loading="lazy">
+                    <img src="assets/feet_nails.jpg" alt="Unhas Decoradas" loading="lazy">
                     <div class="gallery-overlay">
-                        <h4>Esmaltação em Gel</h4>
+                        <h4>Unhas Decoradas</h4>
                         <span>Ver Detalhes</span>
                     </div>
                 </div>
                 <div class="gallery-item" data-category="estetica">
-                    <img src="assets/limpeza_pele.png" alt="Limpeza de Pele" loading="lazy">
+                    <img src="assets/neon_sign.jpg" alt="Limpeza de Pele" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Fototerapia Facial</h4>
                         <span>Ver Detalhes</span>
                     </div>
                 </div>
                 <div class="gallery-item" data-category="estetica">
-                    <img src="assets/massagem.png" alt="Massagem Relaxante" loading="lazy">
+                    <img src="assets/neon_sign.jpg" alt="Massagem Relaxante" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Massoterapia Corporal</h4>
                         <span>Ver Detalhes</span>
                     </div>
                 </div>
                 <div class="gallery-item" data-category="cilios">
-                    <img src="assets/hero_bg.png" alt="Ambiente do Studio" loading="lazy">
+                    <img src="assets/neon_sign.jpg" alt="Ambiente do Studio" loading="lazy">
                     <div class="gallery-overlay">
                         <h4>Ambiente Sr. Lash</h4>
                         <span>Ver Detalhes</span>
@@ -572,7 +611,7 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <h3>SR LASH</h3>
+                    <img src="assets/logo_gold.png" alt="SR LASH Logo" style="height: 55px; margin-bottom: 12px; object-fit: contain;">
                     <p>Studio de Beleza & Autocuidado</p>
                 </div>
                 <div class="footer-links">

@@ -1365,6 +1365,107 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(0);
 }
 
+/* --- Instagram Feed Carousel --- */
+.insta-carousel-section {
+    padding: 80px 0;
+    background-color: var(--color-bg-primary);
+}
+
+.insta-carousel-wrapper {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(197, 168, 128, 0.15);
+}
+
+.insta-carousel {
+    display: flex;
+    height: 480px;
+    position: relative;
+}
+
+.insta-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+.insta-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.insta-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.insta-slide-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(transparent, rgba(34, 22, 16, 0.9));
+    color: var(--color-white);
+}
+
+.insta-slide-info .likes {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.insta-slide-info p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+.insta-prev, .insta-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(250, 247, 242, 0.8);
+    backdrop-filter: blur(5px);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-main);
+    font-size: 1.2rem;
+    transition: var(--transition-fast);
+    z-index: 10;
+}
+
+.insta-prev:hover, .insta-next:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+}
+
+.insta-prev {
+    left: 20px;
+}
+
+.insta-next {
+    right: 20px;
+}
+
 /* --- Responsividade (Media Queries) --- */
 
 @media (max-width: 1024px) {
@@ -1528,5 +1629,27 @@ h1, h2, h3, h4, h5, h6 {
     .footer-bottom {
         flex-direction: column;
         text-align: center;
+    }
+    
+    /* Instagram Carousel Mobile Adjustments */
+    .insta-carousel {
+        height: 320px;
+    }
+    .insta-slide-info {
+        padding: 20px;
+    }
+    .insta-slide-info p {
+        font-size: 0.95rem;
+    }
+    .insta-prev, .insta-next {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+    .insta-prev {
+        left: 10px;
+    }
+    .insta-next {
+        right: 10px;
     }
 }

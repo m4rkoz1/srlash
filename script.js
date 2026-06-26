@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupGalleryFilter();
     setupGalleryLightbox();
     setupTestimonialsCarousel();
+    setupInstagramCarousel();
     setupFaqAccordion();
     setupActiveNavLinkOnScroll();
 });
@@ -317,4 +318,65 @@ function setupActiveNavLinkOnScroll() {
             }
         });
     });
+}
+
+/**
+ * 10. Carrossel do Feed do Instagram
+ */
+function setupInstagramCarousel() {
+    const slides = document.querySelectorAll('.insta-slide');
+    const prevBtn = document.getElementById('instaPrev');
+    const nextBtn = document.getElementById('instaNext');
+    
+    if (!slides.length || !prevBtn || !nextBtn) return;
+    
+    let currentIndex = 0;
+    let autoplayInterval;
+    
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+        currentIndex = index;
+    }
+    
+    function nextSlide() {
+        let nextIndex = currentIndex + 1;
+        if (nextIndex >= slides.length) {
+            nextIndex = 0;
+        }
+        showSlide(nextIndex);
+    }
+    
+    function prevSlide() {
+        let prevIndex = currentIndex - 1;
+        if (prevIndex < 0) {
+            prevIndex = slides.length - 1;
+        }
+        showSlide(prevIndex);
+    }
+    
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoplay();
+    });
+    
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoplay();
+    });
+    
+    function startAutoplay() {
+        autoplayInterval = setInterval(nextSlide, 5000);
+    }
+    
+    function resetAutoplay() {
+        clearInterval(autoplayInterval);
+        startAutoplay();
+    }
+    
+    startAutoplay();
 }
