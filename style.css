@@ -3,6 +3,42 @@
    Estilo Principal (ciliosrecreio.com.br)
    ========================================================================== */
 
+/* ==========================================
+   CONSTRUCTION TICKER
+========================================== */
+.construction-ticker {
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    padding: 6px 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    z-index: 1001;
+}
+
+.ticker-text-wrapper {
+    display: inline-block;
+    white-space: nowrap;
+    animation: constructionMarquee 40s linear infinite;
+}
+
+.ticker-text-wrapper span {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+@keyframes constructionMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ==========================================
+   HEADER & NAVIGATION
+========================================== */
+
 /* --- Variáveis do Sistema de Design --- */
 :root {
     /* Paleta de Cores */
@@ -33,25 +69,7 @@
     --container-width: 1200px;
 }
 
-/* --- Banner Em Construção --- */
-.construction-ribbon {
-    position: fixed;
-    top: 30px;
-    right: -50px;
-    width: 250px;
-    text-align: center;
-    background-color: var(--color-accent);
-    color: var(--color-dark-banner);
-    padding: 10px 0;
-    font-family: var(--font-sans);
-    font-weight: 700;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transform: rotate(45deg);
-    z-index: 10000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
+/* --- Banner Em Construção Removido --- */
 
 /* --- Resets & Configurações Globais --- */
 * {
@@ -367,14 +385,49 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
 }
 
-.hero-bg-slider {
+/* New Infinite Ticker */
+.hero-services-ticker {
     position: absolute;
-    top: 0;
+    bottom: 30px;
     left: 0;
-    width: 50%; /* Metade da tela */
-    height: 100%;
-    z-index: 1;
-    background-color: var(--color-bg-primary);
+    width: 50%; /* Ocupa apenas a metade esquerda no desktop */
+    overflow: hidden;
+    z-index: 10;
+    padding-left: 24px;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content;
+    animation: scrollTicker 35s linear infinite;
+}
+
+.ticker-items {
+    display: flex;
+    gap: 15px;
+    padding-right: 15px; /* Importante para a rolagem infinita ser perfeita */
+}
+
+.ticker-items img {
+    width: 140px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    border: 1px solid rgba(197, 168, 128, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.ticker-items img:hover {
+    transform: scale(1.05);
+    border-color: rgba(197, 168, 128, 0.8);
+}
+
+@keyframes scrollTicker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .hero-slide {
@@ -427,12 +480,13 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     top: 0;
     right: 0;
-    width: 50%;
+    width: 65%; /* Estendido mais para a esquerda para a transição suave */
     height: 100%;
     z-index: 5;
     overflow: hidden;
-    box-shadow: -15px 0 40px rgba(0,0,0,0.6); /* Sombra 3D profunda separando as metades */
-    border-left: 1px solid rgba(197, 168, 128, 0.4); /* Linha dourada bem fina e luxuosa */
+    /* Transição suave e profissional */
+    -webkit-mask-image: linear-gradient(to left, black 0%, black 80%, transparent 100%);
+    mask-image: linear-gradient(to left, black 0%, black 80%, transparent 100%);
     opacity: 0;
     transform: translateX(30px);
     animation: fadeInRightFade 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.3s;
@@ -442,7 +496,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center; /* Foco centralizado */
+    object-position: center 15%; /* Baixou levemente para não encostar no menu */
     transform: scale(1.05);
     transition: transform 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     mask-image: none; 
@@ -479,12 +533,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-title {
-    font-family: var(--font-serif);
-    font-size: 4.8rem;
-    font-weight: 300;
-    color: var(--color-white);
-    margin-bottom: 24px;
+    font-family: var(--font-primary);
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 400;
+    font-style: italic;
     line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #ffffff 0%, #DFCDA6 50%, #C5A880 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 20px rgba(0,0,0,0.2);
     opacity: 0;
     transform: translateY(25px);
     animation: fadeInUpFade 1s forwards 0.4s;
@@ -1386,7 +1445,7 @@ h1, h2, h3, h4, h5, h6 {
 /* --- Floating WhatsApp Icon --- */
 .whatsapp-floating {
     position: fixed;
-    bottom: 30px;
+    bottom: 105px; /* Subido para dar espaço ao Instagram */
     right: 30px;
     width: 60px;
     height: 60px;
@@ -1441,6 +1500,67 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .whatsapp-floating:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Floating Instagram Button */
+.instagram-floating {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 20px rgba(214, 36, 159, 0.4);
+    z-index: 999;
+    transition: var(--transition-smooth);
+}
+
+.instagram-floating::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    opacity: 0.4;
+    z-index: -1;
+    animation: pulseWave 2s infinite;
+}
+
+.instagram-floating:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 25px rgba(214, 36, 159, 0.5);
+}
+
+.instagram-floating .tooltip-text {
+    visibility: hidden;
+    width: 110px;
+    background-color: var(--color-dark-banner);
+    color: var(--color-white);
+    text-align: center;
+    border-radius: 6px;
+    padding: 6px 0;
+    position: absolute;
+    z-index: 1;
+    right: 75px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: var(--shadow-sm);
+    font-family: var(--font-sans);
+}
+
+.instagram-floating:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
 }
@@ -1652,11 +1772,15 @@ h1, h2, h3, h4, h5, h6 {
         padding-top: var(--header-height);
     }
     
-    .hero-bg-slider {
+    .hero-services-ticker {
+        position: relative;
         width: 100%;
-        height: 100%;
+        bottom: 0;
+        padding-left: 0;
+        margin-top: 20px;
+        order: 3;
+        padding-bottom: 20px;
     }
-    
     .hero-container {
         width: 100%;
         padding-top: 60px;

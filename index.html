@@ -30,11 +30,18 @@
 </head>
 <body>
 
-    <!-- Banner Em Construção -->
-    <div class="construction-ribbon">Site em Construção</div>
+    <!-- Banner Em Construção Removido -->
 
     <!-- Header / Navbar -->
     <header class="main-header">
+        <!-- Site em Construção Ticker -->
+        <div class="construction-ticker">
+            <div class="ticker-text-wrapper">
+                <span>SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • </span>
+                <span>SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • </span>
+            </div>
+        </div>
+
         <div class="header-container">
             <a href="#inicio" class="logo-link">
                 <img src="assets/logo_gold.png" alt="SR LASH Logo" class="logo-img">
@@ -45,17 +52,17 @@
                     <li><a href="#inicio" class="nav-link active">Início</a></li>
                     <li><a href="#servicos" class="nav-link">Serviços</a></li>
                     <li><a href="#sobre" class="nav-link">O Studio</a></li>
-                    <li><a href="#galeria" class="nav-link">Galeria</a></li>
-                    <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
-                    <li><a href="#faq" class="nav-link">Dúvidas</a></li>
+                    <!-- Menus ocultados temporariamente a pedido -->
+                    <!-- <li><a href="#galeria" class="nav-link">Galeria</a></li> -->
+                    <!-- <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li> -->
+                    <!-- <li><a href="#faq" class="nav-link">Dúvidas</a></li> -->
                     <li><a href="#contato" class="nav-link">Contato</a></li>
                 </ul>
             </nav>
 
             <div class="header-actions">
-                <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20no%20Sr.%20Lash." target="_blank" class="btn btn-primary btn-header">
-                    <span>Agendar Horário</span>
-                    <i class="fa-brands fa-whatsapp"></i>
+                <a href="https://instagram.com/ciliosrecreio.lashes" target="_blank" class="social-icon-header" aria-label="Instagram" style="color: var(--color-accent); font-size: 1.5rem; margin-right: 15px; transition: transform 0.3s;">
+                    <i class="fa-brands fa-instagram"></i>
                 </a>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir Menu">
                     <span class="bar"></span>
@@ -71,11 +78,7 @@
 
     <!-- Hero Section -->
     <section id="inicio" class="hero-section">
-        <div class="hero-bg-slider">
-            <div class="hero-slide" style="background-image: linear-gradient(rgba(34, 22, 16, 0.4), rgba(34, 22, 16, 0.65)), url('assets/neon_sign.jpg');"></div>
-            <div class="hero-slide" style="background-image: linear-gradient(rgba(34, 22, 16, 0.4), rgba(34, 22, 16, 0.65)), url('assets/eye_lash_brow.jpg');"></div>
-            <div class="hero-slide" style="background-image: linear-gradient(rgba(34, 22, 16, 0.4), rgba(34, 22, 16, 0.65)), url('assets/feet_nails.jpg');"></div>
-        </div>
+        <!-- Foto principal (lado direito no desktop, embaixo no mobile) -->
         <div class="hero-image-wrapper">
             <img src="assets/sueny_hero.jpg" alt="Sueny Reis" class="hero-image">
             <div class="hero-image-overlay"></div>
@@ -91,18 +94,40 @@
                         <span>Agende sua Experiência</span>
                         <i class="fa-brands fa-whatsapp"></i>
                     </a>
+                    <!-- Botão 'Ver Serviços' ocultado temporariamente
                     <a href="#servicos" class="btn btn-outline btn-lg">
                         <span>Ver Serviços</span>
                         <i class="fa-solid fa-arrow-down"></i>
                     </a>
+                    -->
                 </div>
             </div>
         </div>
-        <div class="hero-scroll-indicator">
-            <span class="mouse-scroll">
-                <span class="mouse-wheel"></span>
-            </span>
-            <span class="scroll-text">Role para explorar</span>
+        
+        <!-- Carrossel de Serviços no Rodapé da Hero -->
+        <div class="hero-services-ticker">
+            <div class="ticker-track">
+                <!-- Grupo 1 -->
+                <div class="ticker-items">
+                    <img src="assets/cilios.png" alt="Extensão de Cílios">
+                    <img src="assets/sobrancelha.png" alt="Design de Sobrancelha">
+                    <img src="assets/limpeza_pele.png" alt="Limpeza de Pele">
+                    <img src="assets/massagem.png" alt="Massagem">
+                    <img src="assets/unha.png" alt="Unhas">
+                    <img src="assets/eye_lash_brow.jpg" alt="Estética Facial">
+                    <img src="assets/feet_nails.jpg" alt="Spa e Bem-estar">
+                </div>
+                <!-- Grupo 2 (Cópia exata para rolagem infinita) -->
+                <div class="ticker-items">
+                    <img src="assets/cilios.png" alt="Extensão de Cílios">
+                    <img src="assets/sobrancelha.png" alt="Design de Sobrancelha">
+                    <img src="assets/limpeza_pele.png" alt="Limpeza de Pele">
+                    <img src="assets/massagem.png" alt="Massagem">
+                    <img src="assets/unha.png" alt="Unhas">
+                    <img src="assets/eye_lash_brow.jpg" alt="Estética Facial">
+                    <img src="assets/feet_nails.jpg" alt="Spa e Bem-estar">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -659,6 +684,12 @@
     <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20no%20Sr.%20Lash." target="_blank" class="whatsapp-floating" aria-label="Falar no WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
         <span class="tooltip-text">Agende Agora</span>
+    </a>
+
+    <!-- Floating Instagram Button -->
+    <a href="https://instagram.com/ciliosrecreio.lashes" target="_blank" class="instagram-floating" aria-label="Nosso Instagram">
+        <i class="fa-brands fa-instagram"></i>
+        <span class="tooltip-text">Siga-nos</span>
     </a>
 
     <!-- Lightbox for Gallery (Modal) -->
