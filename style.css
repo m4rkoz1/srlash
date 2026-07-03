@@ -65,7 +65,7 @@
     --font-sans: 'Outfit', sans-serif;
     
     /* Layout */
-    --header-height: 80px;
+    --header-height: 130px; /* Aumentado para acomodar a logo gigante */
     --container-width: 1200px;
 }
 
@@ -286,13 +286,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-img {
-    height: 65px;
+    height: 110px; /* Quase o dobro do tamanho original (65px -> 110px) */
     object-fit: contain;
-    transition: var(--transition-smooth);
+    mix-blend-mode: multiply; /* Remove perfeitamente o fundo branco da logo nova */
+    transition: height 0.3s ease;
 }
 
 .main-header.scrolled .logo-img {
-    height: 48px;
+    height: 70px; /* Diminui suavemente ao rolar a página */
 }
 
 .logo-brand {
