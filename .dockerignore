@@ -1,0 +1,10 @@
+.git
+.gitignore
+.dockerignore
+Dockerfile
+nginx.conf
+README.md
+*.md
+.agents/
+.gemini/
+.vscode/
