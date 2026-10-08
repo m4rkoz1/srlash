@@ -254,3 +254,8 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible { outline:3px soli
  .designer-credit { align-items:flex-start; flex-direction:column; gap:18px; }
  .designer-pitch { font-size:1.35rem; }
 }
+
+/* Faixa contínua: o segundo grupo mantém a passagem sem interrupções. */
+.ticker-track { scroll-snap-type:none; scrollbar-width:none; }
+.ticker-track::-webkit-scrollbar { display:none; }
+.ticker-items { flex-shrink:0; }

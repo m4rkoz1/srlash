@@ -207,34 +207,50 @@ function setupCarousel(selector, dotSelector, previousSelector, nextSelector, in
 function setupPhotoRail() {
     const rail = document.querySelector('.ticker-track');
     const wrapper = document.querySelector('.hero-services-ticker');
+    const group = rail.querySelector('.ticker-items');
     const previous = document.getElementById('photoRailPrev');
     const next = document.getElementById('photoRailNext');
-    let timer;
-    const step = () => rail.querySelector('img').getBoundingClientRect().width + 16;
-    function move(direction) {
-        const end = rail.scrollWidth - rail.clientWidth;
-        const target = direction > 0 && rail.scrollLeft >= end - 3 ? 0 : direction < 0 && rail.scrollLeft <= 3 ? end : rail.scrollLeft + direction * step();
-        rail.scrollTo({left:target, behavior:reducedMotion.matches ? 'auto' : 'smooth'});
+    let frame, lastTime, position = rail.scrollLeft, touching = false;
+    let cycleWidth = group.getBoundingClientRect().width;
+    const step = () => group.querySelector('img').getBoundingClientRect().width + 16;
+    function blocked() {
+        return reducedMotion.matches || document.hidden || touching || wrapper.matches(':hover') || wrapper.contains(document.activeElement) || document.getElementById('lightboxModal').getAttribute('aria-hidden') === 'false';
     }
-    function stop() { clearInterval(timer); }
+    function animate(time) {
+        if (blocked()) { stop(); return; }
+        if (lastTime !== undefined && cycleWidth > 0) {
+            position = (position + Math.min(time - lastTime, 50) * 0.054) % cycleWidth;
+            rail.scrollLeft = position;
+        }
+        lastTime = time;
+        frame = requestAnimationFrame(animate);
+    }
+    function stop() { cancelAnimationFrame(frame); lastTime = undefined; }
     function start() {
         stop();
-        if (!reducedMotion.matches && !document.hidden && !wrapper.matches(':hover') && !wrapper.contains(document.activeElement)) {
-            timer = setInterval(() => {
-                if (document.getElementById('lightboxModal').getAttribute('aria-hidden') === 'true') move(1);
-            }, 3000);
-        }
+        position = rail.scrollLeft;
+        if (!blocked()) frame = requestAnimationFrame(animate);
     }
-    previous.addEventListener('click', () => { move(-1); start(); });
-    next.addEventListener('click', () => { move(1); start(); });
+    function move(direction) {
+        stop();
+        position = (rail.scrollLeft + direction * step() + cycleWidth) % cycleWidth;
+        rail.scrollTo({left:position, behavior:reducedMotion.matches ? 'auto' : 'smooth'});
+    }
+    previous.addEventListener('click', () => move(-1));
+    next.addEventListener('click', () => move(1));
     wrapper.addEventListener('mouseenter', stop);
     wrapper.addEventListener('mouseleave', start);
     wrapper.addEventListener('focusin', stop);
     wrapper.addEventListener('focusout', () => queueMicrotask(start));
-    wrapper.addEventListener('touchstart', stop, {passive:true});
-    wrapper.addEventListener('touchend', start, {passive:true});
+    wrapper.addEventListener('touchstart', () => { touching = true; stop(); }, {passive:true});
+    wrapper.addEventListener('touchend', () => { touching = false; start(); }, {passive:true});
+    wrapper.addEventListener('touchcancel', () => { touching = false; start(); }, {passive:true});
     document.addEventListener('visibilitychange', start);
     reducedMotion.addEventListener('change', start);
+    new ResizeObserver(() => {
+        cycleWidth = group.getBoundingClientRect().width;
+        start();
+    }).observe(group);
     start();
 }
 
