@@ -765,6 +765,15 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.08);
 }
 
+.service-image-complete {
+    object-fit: contain;
+    background-color: var(--color-bg-primary);
+}
+
+.service-card:hover .service-image-complete {
+    transform: none;
+}
+
 .service-price {
     position: absolute;
     bottom: 20px;
