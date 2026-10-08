@@ -1,382 +1,198 @@
-/* ==========================================================================
-   SR LASH - STUDIO DE BELEZA
-   Interatividade e Comportamentos (ciliosrecreio.com.br)
-   ========================================================================== */
-
-// --- CONFIGURAÇÃO CENTRAL ---
-// Altere o número abaixo com o DDD (apenas números, incluindo 55 para o Brasil)
-// Exemplo: '5521988888888' para o DDD 21
 const WHATSAPP_PHONE = '5521977226901';
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicializar Configurações Dinâmicas
-    setupWhatsAppLinks();
+    document.querySelectorAll('a[href*="wa.me/"]').forEach(link => {
+        const url = new URL(link.href);
+        url.pathname = `/${WHATSAPP_PHONE}`;
+        link.href = url.href;
+    });
     setupMobileMenu();
-    setupHeaderScroll();
-    setupScrollAnimations();
-    setupGalleryFilter();
-    setupGalleryLightbox();
-    setupTestimonialsCarousel();
-    setupInstagramCarousel();
-    setupFaqAccordion();
-    setupActiveNavLinkOnScroll();
+    setupNavigation();
+    setupGallery();
+    setupFaq();
+    setupCarousel('.testimonial-card', '.dot', null, null, 6000);
+    setupCarousel('.insta-slide', null, '#instaPrev', '#instaNext', 5000);
+    document.querySelectorAll('video').forEach(video => {
+        video.addEventListener('play', () => {
+            document.querySelectorAll('video').forEach(other => { if (other !== video) other.pause(); });
+        });
+    });
 });
 
-/**
- * 1. Atualiza todos os links do WhatsApp na página dinamicamente
- * baseado no número configurado na constante WHATSAPP_PHONE.
- */
-function setupWhatsAppLinks() {
-    const waLinks = document.querySelectorAll('a[href*="wa.me/"]');
-    waLinks.forEach(link => {
-        const currentHref = link.getAttribute('href');
-        try {
-            // Extrai a mensagem pré-definida, se existir
-            const urlObj = new URL(currentHref);
-            const textParam = urlObj.searchParams.get('text');
-            
-            // Constrói a nova URL com o número correto
-            let newHref = `https://wa.me/${WHATSAPP_PHONE}`;
-            if (textParam) {
-                newHref += `?text=${encodeURIComponent(textParam)}`;
-            }
-            link.setAttribute('href', newHref);
-        } catch (e) {
-            // Fallback caso a URL não seja parseável diretamente
-            if (currentHref.includes('text=')) {
-                const parts = currentHref.split('text=');
-                link.setAttribute('href', `https://wa.me/${WHATSAPP_PHONE}?text=${parts[1]}`);
-            } else {
-                link.setAttribute('href', `https://wa.me/${WHATSAPP_PHONE}`);
-            }
-        }
-    });
-}
-
-/**
- * 2. Menu Mobile Sanduíche e Overlay
- */
 function setupMobileMenu() {
-    const toggleBtn = document.getElementById('mobileMenuToggle');
-    const navMenu = document.getElementById('navMenu');
+    const toggle = document.getElementById('mobileMenuToggle');
+    const nav = document.getElementById('navMenu');
     const overlay = document.getElementById('mobileOverlay');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    function toggleMenu() {
-        toggleBtn.classList.toggle('open');
-        navMenu.classList.toggle('open');
-        overlay.classList.toggle('active');
-        // Trava o scroll do body quando o menu está aberto
-        document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+    const mobile = window.matchMedia('(max-width: 1199px)');
+    const links = [...nav.querySelectorAll('a')];
+    function setOpen(open, restoreFocus = true) {
+        nav.classList.toggle('open', open);
+        toggle.classList.toggle('open', open);
+        overlay.classList.toggle('active', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+        document.body.style.overflow = open ? 'hidden' : '';
+        links.forEach(link => link.tabIndex = mobile.matches && !open ? -1 : 0);
+        if (open) links[0]?.focus();
+        else if (restoreFocus) toggle.focus();
     }
-
-    function closeMenu() {
-        toggleBtn.classList.remove('open');
-        navMenu.classList.remove('open');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    toggleBtn.addEventListener('click', toggleMenu);
-    overlay.addEventListener('click', closeMenu);
-
-    // Fecha o menu ao clicar em qualquer link da navegação
-    navLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
+    toggle.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
+    overlay.addEventListener('click', () => setOpen(false));
+    links.forEach(link => link.addEventListener('click', () => setOpen(false, false)));
+    document.addEventListener('keydown', event => {
+        if (!nav.classList.contains('open')) return;
+        if (event.key === 'Escape') { event.preventDefault(); setOpen(false); }
+        if (event.key === 'Tab') {
+            const focusable = [toggle, ...links];
+            const index = focusable.indexOf(document.activeElement);
+            if (event.shiftKey && index <= 0) { event.preventDefault(); focusable.at(-1).focus(); }
+            if (!event.shiftKey && index === focusable.length - 1) { event.preventDefault(); toggle.focus(); }
+        }
     });
+    mobile.addEventListener('change', () => setOpen(false, false));
+    setOpen(false, false);
 }
 
-/**
- * 3. Efeito no Header ao Rolar a Página
- */
-function setupHeaderScroll() {
+function setupNavigation() {
     const header = document.querySelector('.main-header');
-    
-    function checkScroll() {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    }
-    
-    window.addEventListener('scroll', checkScroll);
-    checkScroll(); // Verifica no carregamento inicial
-}
-
-/**
- * 4. Animação de Scroll (Fade in Up) usando Intersection Observer
- */
-function setupScrollAnimations() {
-    const animElements = document.querySelectorAll('.fade-in-up');
-    
-    if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('appear');
-                    // Uma vez animado, não precisa observar novamente
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px' // Dispara um pouco antes de entrar totalmente
+    const sections = [...document.querySelectorAll('section[id]')];
+    const links = [...document.querySelectorAll('.nav-link[href^="#"]')];
+    let pending = false;
+    function update() {
+        const position = window.scrollY + header.offsetHeight + 40;
+        let current = sections[0]?.id;
+        sections.forEach(section => { if (section.offsetTop <= position) current = section.id; });
+        header.classList.toggle('scrolled', window.scrollY > 30);
+        links.forEach(link => {
+            const active = link.hash === `#${current}`;
+            link.classList.toggle('active', active);
+            if (active) link.setAttribute('aria-current', 'location');
+            else link.removeAttribute('aria-current');
         });
-        
-        animElements.forEach(el => observer.observe(el));
-    } else {
-        // Fallback para navegadores antigos
-        animElements.forEach(el => el.classList.add('appear'));
+        pending = false;
     }
-}
-
-/**
- * 5. Filtro de Categorias na Galeria
- */
-function setupGalleryFilter() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove a classe ativa de todos os botões e adiciona no clicado
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            const filterValue = btn.getAttribute('data-filter');
-            
-            galleryItems.forEach(item => {
-                const category = item.getAttribute('data-category');
-                
-                if (filterValue === 'all' || category === filterValue) {
-                    // Mostrar com animação suave
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 50);
-                } else {
-                    // Esconder com animação suave
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 400); // Aguarda o fim da transição do CSS (0.4s)
-                }
-            });
-        });
-    });
-}
-
-/**
- * 6. Lightbox da Galeria (Visualização de Imagens em Tela Cheia)
- */
-function setupGalleryLightbox() {
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const modal = document.getElementById('lightboxModal');
-    const modalImg = document.getElementById('lightboxImg');
-    const captionText = document.getElementById('lightboxCaption');
-    const closeBtn = document.getElementById('lightboxClose');
-    
-    galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const img = item.querySelector('img');
-            const title = item.querySelector('h4').textContent;
-            
-            modal.style.display = 'block';
-            modalImg.src = img.src;
-            captionText.innerHTML = title;
-            document.body.style.overflow = 'hidden'; // Trava scroll da página
-        });
-    });
-    
-    function closeModal() {
-        modal.style.display = 'none';
-        document.body.style.overflow = ''; // Libera scroll
-    }
-    
-    closeBtn.addEventListener('click', closeModal);
-    
-    // Fecha clicando fora da imagem
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal || e.target === closeBtn) {
-            closeModal();
-        }
-    });
-
-    // Tecla ESC fecha o modal
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.style.display === 'block') {
-            closeModal();
-        }
-    });
-}
-
-/**
- * 7. Carrossel de Depoimentos
- */
-function setupTestimonialsCarousel() {
-    const cards = document.querySelectorAll('.testimonial-card');
-    const dots = document.querySelectorAll('.dot');
-    let currentIndex = 0;
-    let carouselInterval;
-    
-    function showTestimonial(index) {
-        cards.forEach((card, i) => {
-            card.classList.remove('active');
-            dots[i].classList.remove('active');
-            if (i === index) {
-                card.classList.add('active');
-                dots[i].classList.add('active');
-            }
-        });
-        currentIndex = index;
-    }
-    
-    function nextTestimonial() {
-        let nextIndex = currentIndex + 1;
-        if (nextIndex >= cards.length) {
-            nextIndex = 0;
-        }
-        showTestimonial(nextIndex);
-    }
-    
-    // Controle por cliques nos pontinhos
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            showTestimonial(index);
-            resetAutoplay();
-        });
-    });
-    
-    // Inicia rotação automática (a cada 6 segundos)
-    function startAutoplay() {
-        carouselInterval = setInterval(nextTestimonial, 6000);
-    }
-    
-    function resetAutoplay() {
-        clearInterval(carouselInterval);
-        startAutoplay();
-    }
-    
-    startAutoplay();
-}
-
-/**
- * 8. Acordeão de Perguntas Frequentes (FAQ)
- */
-function setupFaqAccordion() {
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    
-    faqQuestions.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const faqItem = btn.parentElement;
-            const isOpen = faqItem.classList.contains('active');
-            
-            // Fecha todos os FAQs abertos
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-                item.querySelector('.faq-answer').style.maxHeight = null;
-            });
-            
-            // Se não estava aberto, abre o clicado
-            if (!isOpen) {
-                faqItem.classList.add('active');
-                const answer = faqItem.querySelector('.faq-answer');
-                // Atribui altura dinâmica para a transição suave de CSS funcionar
-                answer.style.maxHeight = answer.scrollHeight + 'px';
-            }
-        });
-    });
-}
-
-/**
- * 9. Destacar Link Ativo na Navbar ao Rolar a Página
- */
-function setupActiveNavLinkOnScroll() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
     window.addEventListener('scroll', () => {
-        let currentSectionId = '';
-        const scrollPosition = window.scrollY + 120; // Offset do header fixo
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            
-            if (scrollPosition >= sectionTop && scrollPosition < (sectionTop + sectionHeight)) {
-                currentSectionId = section.getAttribute('id');
-            }
+        if (!pending) { pending = true; requestAnimationFrame(update); }
+    }, {passive:true});
+    update();
+}
+
+function setupGallery() {
+    const items = [...document.querySelectorAll('.gallery-item')];
+    const filters = [...document.querySelectorAll('.filter-btn')];
+    const modal = document.getElementById('lightboxModal');
+    const image = document.getElementById('lightboxImg');
+    const caption = document.getElementById('lightboxCaption');
+    const close = document.getElementById('lightboxClose');
+    let opener;
+    filters.forEach(button => {
+        button.setAttribute('aria-pressed', String(button.classList.contains('active')));
+        button.addEventListener('click', () => {
+            filters.forEach(other => {
+                other.classList.toggle('active', other === button);
+                other.setAttribute('aria-pressed', String(other === button));
+            });
+            items.forEach(item => { item.hidden = button.dataset.filter !== 'all' && item.dataset.category !== button.dataset.filter; });
         });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSectionId}`) {
-                link.classList.add('active');
-            }
+    });
+    function open(item) {
+        opener = item;
+        const thumbnail = item.querySelector('img');
+        image.src = thumbnail.src;
+        image.alt = thumbnail.alt;
+        caption.textContent = item.querySelector('h4')?.textContent || thumbnail.alt;
+        modal.style.display = 'block';
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        close.focus();
+    }
+    function dismiss() {
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        opener?.focus({preventScroll:true});
+    }
+    items.forEach(item => {
+        item.tabIndex = 0;
+        item.setAttribute('role', 'button');
+        item.setAttribute('aria-label', `Ver foto: ${item.querySelector('img').alt}`);
+        item.addEventListener('click', () => open(item));
+        item.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); open(item); }
+        });
+    });
+    close.addEventListener('click', dismiss);
+    modal.addEventListener('click', event => { if (event.target === modal) dismiss(); });
+    document.addEventListener('keydown', event => {
+        if (modal.getAttribute('aria-hidden') === 'true') return;
+        if (event.key === 'Escape') dismiss();
+        if (event.key === 'Tab') { event.preventDefault(); close.focus(); }
+    });
+}
+
+function setupFaq() {
+    const items = [...document.querySelectorAll('.faq-item')];
+    items.forEach((item, index) => {
+        const button = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        button.id = `faq-question-${index}`;
+        answer.id = `faq-answer-${index}`;
+        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('aria-controls', answer.id);
+        answer.setAttribute('role', 'region');
+        answer.setAttribute('aria-labelledby', button.id);
+        answer.setAttribute('aria-hidden', 'true');
+        button.addEventListener('click', () => {
+            const open = !item.classList.contains('active');
+            items.forEach(other => {
+                const active = other === item && open;
+                other.classList.toggle('active', active);
+                other.querySelector('.faq-question').setAttribute('aria-expanded', String(active));
+                other.querySelector('.faq-answer').setAttribute('aria-hidden', String(!active));
+                other.querySelector('.faq-answer').style.maxHeight = active ? other.querySelector('.faq-answer').scrollHeight + 'px' : '';
+            });
+        });
+    });
+    window.addEventListener('resize', () => {
+        items.filter(item => item.classList.contains('active')).forEach(item => {
+            const answer = item.querySelector('.faq-answer');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
         });
     });
 }
 
-/**
- * 10. Carrossel do Feed do Instagram
- */
-function setupInstagramCarousel() {
-    const slides = document.querySelectorAll('.insta-slide');
-    const prevBtn = document.getElementById('instaPrev');
-    const nextBtn = document.getElementById('instaNext');
-    
-    if (!slides.length || !prevBtn || !nextBtn) return;
-    
-    let currentIndex = 0;
-    let autoplayInterval;
-    
-    function showSlide(index) {
+function setupCarousel(selector, dotSelector, previousSelector, nextSelector, interval) {
+    const slides = [...document.querySelectorAll(selector)];
+    if (!slides.length) return;
+    const dots = dotSelector ? [...document.querySelectorAll(dotSelector)] : [];
+    const root = slides[0].parentElement;
+    const controls = nextSelector ? root.parentElement : document.getElementById('depoimentos');
+    let index = 0, timer;
+    function show(next) {
+        index = (next + slides.length) % slides.length;
         slides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            if (i === index) {
-                slide.classList.add('active');
-            }
+            slide.classList.toggle('active', i === index);
+            slide.setAttribute('aria-hidden', String(i !== index));
         });
-        currentIndex = index;
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+            dot.setAttribute('aria-pressed', String(i === index));
+        });
     }
-    
-    function nextSlide() {
-        let nextIndex = currentIndex + 1;
-        if (nextIndex >= slides.length) {
-            nextIndex = 0;
-        }
-        showSlide(nextIndex);
+    function stop() { clearInterval(timer); }
+    function start() {
+        stop();
+        if (!reducedMotion.matches && !document.hidden && !controls.matches(':hover') && !controls.contains(document.activeElement)) timer = setInterval(() => show(index + 1), interval);
     }
-    
-    function prevSlide() {
-        let prevIndex = currentIndex - 1;
-        if (prevIndex < 0) {
-            prevIndex = slides.length - 1;
-        }
-        showSlide(prevIndex);
-    }
-    
-    nextBtn.addEventListener('click', () => {
-        nextSlide();
-        resetAutoplay();
-    });
-    
-    prevBtn.addEventListener('click', () => {
-        prevSlide();
-        resetAutoplay();
-    });
-    
-    function startAutoplay() {
-        autoplayInterval = setInterval(nextSlide, 5000);
-    }
-    
-    function resetAutoplay() {
-        clearInterval(autoplayInterval);
-        startAutoplay();
-    }
-    
-    startAutoplay();
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); start(); }));
+    if (previousSelector) document.querySelector(previousSelector)?.addEventListener('click', () => { show(index - 1); start(); });
+    if (nextSelector) document.querySelector(nextSelector)?.addEventListener('click', () => { show(index + 1); start(); });
+    controls.addEventListener('mouseenter', stop);
+    controls.addEventListener('mouseleave', start);
+    controls.addEventListener('focusin', stop);
+    controls.addEventListener('focusout', () => queueMicrotask(start));
+    document.addEventListener('visibilitychange', start);
+    reducedMotion.addEventListener('change', start);
+    show(0); start();
 }

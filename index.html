@@ -6,7 +6,7 @@
     <meta name="description" content="SR LASH - Studio de Beleza no Recreio dos Bandeirantes. Especialista em extensão de cílios, design de sobrancelha, unhas, limpeza de pele e massagem. Agende seu horário!">
     <meta name="keywords" content="cílios recreio, extensão de cílios, alongamento de cílios, sobrancelha recreio, manicure recreio, limpeza de pele recreio, massagem recreio, sr lash, studio de beleza recreio">
     <meta name="author" content="Sr. Lash">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ciliosrecreio.com.br/">
@@ -33,27 +33,21 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="polish.css?v=20261008-3">
 </head>
 <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
     <!-- Banner Em Construção Removido -->
 
     <!-- Header / Navbar -->
     <header class="main-header">
-        <!-- Site em Construção Ticker -->
-        <div class="construction-ticker">
-            <div class="ticker-text-wrapper">
-                <span>SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • </span>
-                <span>SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • SITE EM CONSTRUÇÃO • </span>
-            </div>
-        </div>
-
         <div class="header-container">
-            <a href="#inicio" class="logo-link">
-                <img src="assets/logo_gold.png" alt="SR LASH Logo" class="logo-img">
+            <a href="#inicio" class="logo-link" aria-label="SR LASH — início">
+                <span class="brand-mark"><img src="assets/logo_gold.png" alt="SR LASH" class="logo-img" width="500" height="500"></span>
             </a>
-            
-            <nav class="nav-menu" id="navMenu">
+
+            <nav class="nav-menu" id="navMenu" aria-label="Navegação principal">
                 <ul>
                     <li><a href="#inicio" class="nav-link active">Início</a></li>
                     <li><a href="#servicos" class="nav-link">Serviços</a></li>
@@ -68,7 +62,8 @@
             </nav>
 
             <div class="header-actions">
-                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir Menu">
+                <a class="btn btn-primary header-booking" href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." target="_blank" rel="noopener noreferrer">Agendar <i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menu" aria-controls="navMenu" aria-expanded="false">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -80,39 +75,39 @@
     <!-- Mobile Navigation Overlay -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
 
+    <main id="conteudo" tabindex="-1">
     <!-- Hero Section -->
     <section id="inicio" class="hero-section">
         <!-- Foto principal (lado direito no desktop, embaixo no mobile) -->
         <div class="hero-image-wrapper">
-            <img src="assets/sueny_hero.jpg" alt="Sueny Reis" class="hero-image">
+            <img src="assets/sueny_hero.jpg" alt="Sueny Reis, especialista do studio SR LASH" class="hero-image" width="828" height="823" fetchpriority="high">
             <div class="hero-image-overlay"></div>
         </div>
 
         <div class="hero-container">
             <div class="hero-content">
-                <span class="hero-tag">Sua melhor versão</span>
-                <h1 class="hero-title">Começa por você!</h1>
-                <p class="hero-text">Agende seu horário e viva uma experiência única de cuidado, bem-estar e autoestima em um ambiente preparado exclusivamente para você.</p>
+                <span class="hero-tag">Studio de beleza · Recreio dos Bandeirantes</span>
+                <h1 class="hero-title">Sua beleza,<br><em>em cada detalhe.</em></h1>
+                <p class="hero-text">Cílios, sobrancelhas e cuidados para realçar sua beleza. Conheça o atendimento de Sueny Reis e equipe no Shopping Barra World.</p>
                 <div class="hero-buttons">
-                    <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." target="_blank" class="btn btn-primary btn-lg">
-                        <span>Agende sua Experiência</span>
+                    <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." target="_blank" class="btn btn-primary btn-lg" rel="noopener noreferrer">
+                        <span>Agendar meu horário</span>
                         <i class="fa-brands fa-whatsapp"></i>
                     </a>
-                    <!-- Botão 'Ver Serviços' ocultado temporariamente
-                    <a href="#servicos" class="btn btn-outline btn-lg">
-                        <span>Ver Serviços</span>
+<a href="#servicos" class="btn btn-outline btn-lg">
+                        <span>Conhecer os serviços</span>
                         <i class="fa-solid fa-arrow-down"></i>
                     </a>
-                    -->
                 </div>
             </div>
         </div>
-        
+
+        <p class="hero-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Shopping Barra World · Recreio, RJ</p>
         <!-- Carrossel de Serviços no Rodapé da Hero -->
         <div class="hero-services-ticker">
             <div class="ticker-track">
                 <!-- Grupo 1 -->
-                <div class="ticker-items">
+                <div class="ticker-items" aria-hidden="true">
                     <img src="assets/real_lash_01.jpg" alt="Volume Brasileiro Real">
                     <img src="assets/real_lash_02.jpg" alt="Extensão Fio a Fio Macro">
                     <img src="assets/real_lash_03.jpg" alt="Harmonização de Olhar">
@@ -125,7 +120,7 @@
                     <img src="assets/real_studio_reception.jpg" alt="Recepção Sr. Lash Barra World">
                 </div>
                 <!-- Grupo 2 (Cópia exata para rolagem infinita) -->
-                <div class="ticker-items">
+                <div class="ticker-items" aria-hidden="true">
                     <img src="assets/real_lash_01.jpg" alt="Volume Brasileiro Real">
                     <img src="assets/real_lash_02.jpg" alt="Extensão Fio a Fio Macro">
                     <img src="assets/real_lash_03.jpg" alt="Harmonização de Olhar">
@@ -141,61 +136,6 @@
         </div>
     </section>
 
-    <!-- Instagram Feed Carousel Section (Most Liked Photos) -->
-    <section class="insta-carousel-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-tag">Instagram @ciliosrecreio.lashes</span>
-                <h2 class="section-title">Destaques do Studio</h2>
-                <div class="section-divider"></div>
-            </div>
-            
-            <div class="insta-carousel-wrapper">
-                <div class="insta-carousel" id="instaCarousel">
-                    <div class="insta-slide active">
-                        <img src="assets/real_studio_reception.jpg" alt="Espaço Sr. Lash - Shopping Barra World">
-                        <div class="insta-slide-info">
-                            <span class="likes"><i class="fa-solid fa-heart"></i> 680+ curtidas</span>
-                            <p>Nosso espaço exclusivo no Shopping Barra World com recepção aconchegante e jardim vertical!</p>
-                        </div>
-                    </div>
-                    <div class="insta-slide">
-                        <img src="assets/real_lash_01.jpg" alt="Extensão de Cílios Real">
-                        <div class="insta-slide-info">
-                            <span class="likes"><i class="fa-solid fa-heart"></i> 540+ curtidas</span>
-                            <p>Extensão de cílios personalizada e harmonização facial sob os cuidados de Sueny Reis.</p>
-                        </div>
-                    </div>
-                    <div class="insta-slide">
-                        <img src="assets/real_studio_hospitality.jpg" alt="Café Gourmet Sr. Lash">
-                        <div class="insta-slide-info">
-                            <span class="likes"><i class="fa-solid fa-heart"></i> 490+ curtidas</span>
-                            <p>Mimo especial: cappuccino com borda de chocolate servido com carinho para nossas clientes VIPs.</p>
-                        </div>
-                    </div>
-                    <div class="insta-slide">
-                        <img src="assets/real_lash_04.jpg" alt="Lash Lifting e Sobrancelhas">
-                        <div class="insta-slide-info">
-                            <span class="likes"><i class="fa-solid fa-heart"></i> 420+ curtidas</span>
-                            <p>Lash Lifting com efeito alinhado e natural combinado com Brow Lamination impecável.</p>
-                        </div>
-                    </div>
-                    <div class="insta-slide">
-                        <img src="assets/real_lash_07.jpg" alt="Efeito Delineado Fox Eyes">
-                        <div class="insta-slide-info">
-                            <span class="likes"><i class="fa-solid fa-heart"></i> 380+ curtidas</span>
-                            <p>Técnica avançada Fox Eyes com curvatura e efeito delineador suave que valoriza o olhar.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <button class="insta-prev" id="instaPrev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="insta-next" id="instaNext" aria-label="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Core Values / Pillars Section -->
     <section class="pillars-section">
         <div class="container">
             <div class="pillars-grid">
@@ -215,7 +155,7 @@
                 </div>
                 <div class="pillar-item fade-in-up" style="animation-delay: 0.2s;">
                     <div class="pillar-icon">
-                        <i class="fa-solid fa-sparkles"></i>
+                        <i class="fa-solid fa-gem"></i>
                     </div>
                     <h3>Produtos Premium</h3>
                     <p>Utilizamos apenas marcas de padrão internacional, hipoalergênicas e de alta durabilidade.</p>
@@ -223,6 +163,63 @@
             </div>
         </div>
     </section>
+
+    <!-- Instagram Feed Carousel Section (Most Liked Photos) -->
+    <section class="insta-carousel-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Conheça o nosso espaço</span>
+                <h2 class="section-title">Destaques do Studio</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="insta-carousel-wrapper">
+                <div class="insta-carousel" id="instaCarousel">
+                    <div class="insta-slide active">
+                        <img src="assets/real_studio_reception.jpg" alt="Espaço Sr. Lash - Shopping Barra World">
+                        <div class="insta-slide-info">
+                            <span class="likes">Um olhar sobre o nosso studio</span>
+                            <p>Nosso espaço exclusivo no Shopping Barra World com recepção aconchegante e jardim vertical!</p>
+                        </div>
+                    </div>
+                    <div class="insta-slide">
+                        <img src="assets/real_lash_01.jpg" alt="Extensão de Cílios Real">
+                        <div class="insta-slide-info">
+                            <span class="likes">Um olhar sobre o nosso studio</span>
+                            <p>Extensão de cílios personalizada e harmonização facial sob os cuidados de Sueny Reis.</p>
+                        </div>
+                    </div>
+                    <div class="insta-slide">
+                        <img src="assets/real_studio_hospitality.jpg" alt="Café Gourmet Sr. Lash">
+                        <div class="insta-slide-info">
+                            <span class="likes">Um olhar sobre o nosso studio</span>
+                            <p>Mimo especial: cappuccino com borda de chocolate servido com carinho para nossas clientes VIPs.</p>
+                        </div>
+                    </div>
+                    <div class="insta-slide">
+                        <img src="assets/real_lash_04.jpg" alt="Lash Lifting e Sobrancelhas">
+                        <div class="insta-slide-info">
+                            <span class="likes">Um olhar sobre o nosso studio</span>
+                            <p>Lash Lifting com efeito alinhado e natural combinado com Brow Lamination impecável.</p>
+                        </div>
+                    </div>
+                    <div class="insta-slide">
+                        <img src="assets/real_lash_07.jpg" alt="Efeito Delineado Fox Eyes">
+                        <div class="insta-slide-info">
+                            <span class="likes">Um olhar sobre o nosso studio</span>
+                            <p>Técnica avançada Fox Eyes com curvatura e efeito delineador suave que valoriza o olhar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="insta-prev" id="instaPrev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="insta-next" id="instaNext" aria-label="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values / Pillars Section -->
+
 
     <!-- Services Section -->
     <section id="servicos" class="services-section">
@@ -249,7 +246,7 @@
                             <li><i class="fa-solid fa-check"></i> Cola hipoalergênica certificada</li>
                             <li><i class="fa-solid fa-check"></i> Isolamento perfeito dos cílios</li>
                         </ul>
-                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20o%20procedimento%20de%20Extensão%20de%20Cílios." target="_blank" class="btn btn-outline btn-full">
+                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20o%20procedimento%20de%20Extensão%20de%20Cílios." target="_blank" class="btn btn-outline btn-full" rel="noopener noreferrer">
                             <span>Agendar Cílios</span>
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
@@ -270,7 +267,7 @@
                             <li><i class="fa-solid fa-check"></i> Pigmentos naturais e de alta fixação</li>
                             <li><i class="fa-solid fa-check"></i> Pinçamento preciso e indolor</li>
                         </ul>
-                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20o%20procedimento%20de%20Design%20de%20Sobrancelhas." target="_blank" class="btn btn-outline btn-full">
+                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20o%20procedimento%20de%20Design%20de%20Sobrancelhas." target="_blank" class="btn btn-outline btn-full" rel="noopener noreferrer">
                             <span>Agendar Sobrancelha</span>
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
@@ -291,7 +288,7 @@
                             <li><i class="fa-solid fa-check"></i> Esmaltes importados de longa duração</li>
                             <li><i class="fa-solid fa-check"></i> Esterilização em autoclave</li>
                         </ul>
-                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20o%20serviço%20de%20Unhas." target="_blank" class="btn btn-outline btn-full">
+                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20o%20serviço%20de%20Unhas." target="_blank" class="btn btn-outline btn-full" rel="noopener noreferrer">
                             <span>Agendar Unhas</span>
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
@@ -312,7 +309,7 @@
                             <li><i class="fa-solid fa-check"></i> Máscara calmante e hidratante</li>
                             <li><i class="fa-solid fa-check"></i> Adequado para todos os tipos de pele</li>
                         </ul>
-                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20uma%20Limpeza%20de%20Pele%20Profunda." target="_blank" class="btn btn-outline btn-full">
+                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20uma%20Limpeza%20de%20Pele%20Profunda." target="_blank" class="btn btn-outline btn-full" rel="noopener noreferrer">
                             <span>Agendar Limpeza</span>
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
@@ -333,7 +330,7 @@
                             <li><i class="fa-solid fa-check"></i> Alívio imediato do estresse mental</li>
                             <li><i class="fa-solid fa-check"></i> Redução de medidas e retenção</li>
                         </ul>
-                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20uma%20sessão%20de%20Massagem." target="_blank" class="btn btn-outline btn-full">
+                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20uma%20sessão%20de%20Massagem." target="_blank" class="btn btn-outline btn-full" rel="noopener noreferrer">
                             <span>Agendar Massagem</span>
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
@@ -348,7 +345,7 @@
                     <div class="service-info">
                         <div class="service-category">Formação Profissional</div>
                         <h3>Curso Start Lash Iniciante</h3>
-                        <p class="service-desc">Aprenda do zero as técnicas mais procuradas de extensão de cílios com Sueny Joyce. Turmas VIP de até 3 alunas com 8h de prática intensiva no Recreio.</p>
+                        <p class="service-desc">Aprenda do zero as técnicas mais procuradas de extensão de cílios com Sueny Reis. Turmas VIP de até 3 alunas com 8h de prática intensiva no Recreio.</p>
                         <ul class="service-features">
                             <li><i class="fa-solid fa-check"></i> Turmas VIP (máximo de 3 alunas)</li>
                             <li><i class="fa-solid fa-check"></i> 8h de prática intensiva em modelos reais</li>
@@ -367,7 +364,7 @@
                 <div style="flex: 1; min-width: 280px;">
                     <span style="color: var(--color-accent); font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Acelere sua Carreira</span>
                     <h3 style="color: var(--color-white); font-family: var(--font-serif); font-size: 2.2rem; margin: 8px 0 12px 0;">Curso Presencial Start Lash Iniciante</h3>
-                    <p style="color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 0;">Domine a arte da extensão de cílios com turmas de no máximo 3 alunas e 8 horas de prática intensiva com Sueny Joyce. Você sai pronta para atender e faturar!</p>
+                    <p style="color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 0;">Domine a arte da extensão de cílios com turmas de no máximo 3 alunas e 8 horas de prática intensiva com Sueny Reis. Você sai pronta para atender e faturar!</p>
                 </div>
                 <div>
                     <a href="https://evbergbraga-sketch.github.io/l.p-Suenny/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" style="box-shadow: 0 8px 25px rgba(197, 168, 128, 0.4);">
@@ -398,9 +395,9 @@
                     <span class="section-tag">Por trás do cuidado</span>
                     <h2 class="section-title">Sobre a Sr. Lash</h2>
                     <p class="about-lead">Sob a liderança de Sueny Reis, proporcionamos atendimentos express e cursos presenciais de capacitação para iniciantes.</p>
-                    <p>Localizado no Shopping Barra World (Setor Holanda), o Studio **Sr. Lash** destaca-se pelo acolhimento único, jardim vertical com iluminação aconchegante e rigor absoluto nos processos. Entendemos que a verdadeira beleza mora no cuidado minucioso com a saúde e harmonia de cada cliente.</p>
-                    <p>Nossa equipe passa por treinamentos constantes com as maiores referências em *lash design* e estética do país, garantindo técnicas modernas, confortáveis e com máxima durabilidade.</p>
-                    
+                    <p>Localizado no Shopping Barra World (Setor Holanda), o Studio <strong>Sr. Lash</strong> destaca-se pelo acolhimento único, jardim vertical com iluminação aconchegante e rigor absoluto nos processos. Entendemos que a verdadeira beleza mora no cuidado minucioso com a saúde e harmonia de cada cliente.</p>
+                    <p>Nossa equipe passa por treinamentos constantes com as maiores referências em <em>lash design</em> e estética do país, garantindo técnicas modernas, confortáveis e com máxima durabilidade.</p>
+
                     <div class="about-highlights">
                         <div class="highlight-item">
                             <i class="fa-solid fa-certificate"></i>
@@ -610,7 +607,7 @@
                 <span class="section-tag">Depoimentos Reais</span>
                 <h2 class="section-title">O que dizem sobre nós</h2>
                 <div class="section-divider"></div>
-                
+
                 <!-- Google Rating Badge -->
                 <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(197, 168, 128, 0.3); padding: 8px 20px; border-radius: 50px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
                     <i class="fa-brands fa-google" style="color: #4285F4; font-size: 1.2rem;"></i>
@@ -724,11 +721,11 @@
             </div>
 
             <div class="carousel-dots" id="carouselDots">
-                <span class="dot active" data-index="0"></span>
-                <span class="dot" data-index="1"></span>
-                <span class="dot" data-index="2"></span>
-                <span class="dot" data-index="3"></span>
-                <span class="dot" data-index="4"></span>
+                <button type="button" class="dot active" data-index="0" aria-label="Ver depoimento 1"></button>
+                <button type="button" class="dot" data-index="1" aria-label="Ver depoimento 2"></button>
+                <button type="button" class="dot" data-index="2" aria-label="Ver depoimento 3"></button>
+                <button type="button" class="dot" data-index="3" aria-label="Ver depoimento 4"></button>
+                <button type="button" class="dot" data-index="4" aria-label="Ver depoimento 5"></button>
             </div>
         </div>
     </section>
@@ -794,7 +791,7 @@
                     <span class="section-tag">Contato & Localização</span>
                     <h2 class="section-title">Venha Nos Visitar</h2>
                     <p class="contact-lead">Estamos prontas para te receber no coração do Recreio dos Bandeirantes.</p>
-                    
+
                     <ul class="contact-list">
                         <li>
                             <div class="contact-icon-box"><i class="fa-solid fa-location-dot"></i></div>
@@ -822,8 +819,8 @@
                     <div class="social-links-wrapper">
                         <h4>Siga-nos no Instagram</h4>
                         <div class="social-links">
-                            <a href="https://www.instagram.com/ciliosrecreio.lashes/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="https://wa.me/5521977226901" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/ciliosrecreio.lashes/" target="_blank" aria-label="Instagram" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://wa.me/5521977226901" target="_blank" aria-label="WhatsApp" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
                         </div>
                     </div>
                 </div>
@@ -831,20 +828,22 @@
                 <div class="contact-map-wrapper fade-in-up" style="animation-delay: 0.2s;">
                     <div class="map-container">
                         <!-- Custom styled maps placeholder or iframe -->
-                        <iframe src="https://maps.google.com/maps?q=Shopping%20Barra%20World,%20Av.%20Alfredo%20Baltazar%20da%20Silveira,%20520,%20Recreio%20dos%20Bandeirantes&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://maps.google.com/maps?q=Shopping%20Barra%20World,%20Av.%20Alfredo%20Baltazar%20da%20Silveira,%20520,%20Recreio%20dos%20Bandeirantes&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                            title="Localização do SR LASH no Shopping Barra World" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <img src="assets/logo_gold.png" alt="SR LASH Logo" style="height: 55px; margin-bottom: 12px; object-fit: contain;">
+                    <a href="#inicio" class="footer-logo" aria-label="SR LASH — início"><span class="brand-mark"><img src="assets/logo_gold.png" alt="SR LASH" width="500" height="500"></span></a>
                     <p>Studio de Beleza & Autocuidado</p>
                 </div>
                 <div class="footer-links">
@@ -867,7 +866,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2026 SR LASH. Todos os direitos reservados. ciliosrecreio.com.br</p>
                 <p class="developer-credit">Desenvolvido por <a href="https://mscunha.site" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent); text-decoration: none; font-weight: 500; transition: color 0.2s;">mscunha.site</a></p>
@@ -876,25 +875,25 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20no%20Sr.%20Lash." target="_blank" class="whatsapp-floating" aria-label="Falar no WhatsApp">
+    <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20no%20Sr.%20Lash." target="_blank" class="whatsapp-floating" aria-label="Falar no WhatsApp" rel="noopener noreferrer">
         <i class="fa-brands fa-whatsapp"></i>
         <span class="tooltip-text">Agende Agora</span>
     </a>
 
     <!-- Floating Instagram Button -->
-    <a href="https://instagram.com/ciliosrecreio.lashes" target="_blank" class="instagram-floating" aria-label="Nosso Instagram">
+    <a href="https://instagram.com/ciliosrecreio.lashes" target="_blank" class="instagram-floating" aria-label="Nosso Instagram" rel="noopener noreferrer">
         <i class="fa-brands fa-instagram"></i>
         <span class="tooltip-text">Siga-nos</span>
     </a>
 
     <!-- Lightbox for Gallery (Modal) -->
-    <div class="lightbox-modal" id="lightboxModal">
-        <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Foto da galeria" aria-hidden="true">
+        <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Fechar foto">&times;</button>
         <img class="lightbox-content" id="lightboxImg" alt="Visualização em tamanho cheio">
         <div id="lightboxCaption" class="lightbox-caption"></div>
     </div>
 
     <!-- Scripts -->
-    <script src="script.js"></script>
+    <script src="script.js?v=20261008-2"></script>
 </body>
 </html>
