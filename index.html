@@ -32,13 +32,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="polish.css?v=20261008-3">
+    <link rel="stylesheet" href="style.css?v=20261008-6">
+    <link rel="stylesheet" href="polish.css?v=20261008-6">
 </head>
 <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-    <!-- Banner Em Construção Removido -->
 
     <!-- Header / Navbar -->
     <header class="main-header">
@@ -62,7 +61,7 @@
             </nav>
 
             <div class="header-actions">
-                <a class="btn btn-primary header-booking" href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." target="_blank" rel="noopener noreferrer">Agendar <i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+                <a class="btn btn-primary header-booking" href="https://wa.me/5521974691398?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." target="_blank" rel="noopener noreferrer">Agendar <i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menu" aria-controls="navMenu" aria-expanded="false">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -80,7 +79,11 @@
     <section id="inicio" class="hero-section">
         <!-- Foto principal (lado direito no desktop, embaixo no mobile) -->
         <div class="hero-image-wrapper">
-            <img src="assets/sueny_hero.jpg" alt="Sueny Reis, especialista do studio SR LASH" class="hero-image" width="828" height="823" fetchpriority="high">
+            <video id="heroVideo" class="hero-image hero-video" autoplay playsinline controls preload="auto" poster="assets/poster_principal.jpg" aria-label="Apresentação do studio SR LASH">
+                <source src="assets/video_principal.mp4" type="video/mp4">
+                Seu navegador não suporta vídeo. <a href="assets/video_principal.mp4">Abrir apresentação</a>.
+            </video>
+            <button id="heroVideoControl" class="hero-video-control" type="button">Reproduzir vídeo</button>
             <div class="hero-image-overlay"></div>
         </div>
 
@@ -90,7 +93,7 @@
                 <h1 class="hero-title">Sua beleza,<br><em>em cada detalhe.</em></h1>
                 <p class="hero-text">Cílios, sobrancelhas e cuidados para realçar sua beleza. Conheça o atendimento de Sueny Reis e equipe no Shopping Barra World.</p>
                 <div class="hero-buttons">
-                    <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." target="_blank" class="btn btn-primary btn-lg" rel="noopener noreferrer">
+                    <a href="https://wa.me/5521974691398?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." target="_blank" class="btn btn-primary btn-lg" rel="noopener noreferrer">
                         <span>Agendar meu horário</span>
                         <i class="fa-brands fa-whatsapp"></i>
                     </a>
@@ -104,10 +107,11 @@
 
         <p class="hero-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Shopping Barra World · Recreio, RJ</p>
         <!-- Carrossel de Serviços no Rodapé da Hero -->
-        <div class="hero-services-ticker">
+        <div class="hero-services-ticker" aria-label="Fotos dos nossos resultados">
+            <div class="photo-rail-heading"><span>Nosso trabalho de perto <small>Toque para ampliar</small></span><div><button id="photoRailPrev" type="button" aria-label="Fotos anteriores">&#8592;</button><button id="photoRailNext" type="button" aria-label="Próximas fotos">&#8594;</button></div></div>
             <div class="ticker-track">
                 <!-- Grupo 1 -->
-                <div class="ticker-items" aria-hidden="true">
+                <div class="ticker-items">
                     <img src="assets/real_lash_01.jpg" alt="Volume Brasileiro Real">
                     <img src="assets/real_lash_02.jpg" alt="Extensão Fio a Fio Macro">
                     <img src="assets/real_lash_03.jpg" alt="Harmonização de Olhar">
@@ -119,19 +123,7 @@
                     <img src="assets/real_facial_treatment.jpg" alt="Fototerapia & Cuidado Facial">
                     <img src="assets/real_studio_reception.jpg" alt="Recepção Sr. Lash Barra World">
                 </div>
-                <!-- Grupo 2 (Cópia exata para rolagem infinita) -->
-                <div class="ticker-items" aria-hidden="true">
-                    <img src="assets/real_lash_01.jpg" alt="Volume Brasileiro Real">
-                    <img src="assets/real_lash_02.jpg" alt="Extensão Fio a Fio Macro">
-                    <img src="assets/real_lash_03.jpg" alt="Harmonização de Olhar">
-                    <img src="assets/real_lash_04.jpg" alt="Lash Lifting & Brow Lamination">
-                    <img src="assets/real_lash_06.jpg" alt="Extensão Personalizada">
-                    <img src="assets/real_lash_07.jpg" alt="Fox Eyes & Efeito Delineado">
-                    <img src="assets/real_lash_08.jpg" alt="Volume Russo & Sobrancelhas">
-                    <img src="assets/real_studio_hospitality.jpg" alt="Café Gourmet & Atendimento VIP">
-                    <img src="assets/real_facial_treatment.jpg" alt="Fototerapia & Cuidado Facial">
-                    <img src="assets/real_studio_reception.jpg" alt="Recepção Sr. Lash Barra World">
-                </div>
+
             </div>
         </div>
     </section>
@@ -246,7 +238,7 @@
                             <li><i class="fa-solid fa-check"></i> Cola hipoalergênica certificada</li>
                             <li><i class="fa-solid fa-check"></i> Isolamento perfeito dos cílios</li>
                         </ul>
-                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20o%20procedimento%20de%20Extensão%20de%20Cílios." target="_blank" class="btn btn-outline btn-full" rel="noopener noreferrer">
+                        <a href="https://wa.me/5521974691398?text=Olá!%20Gostaria%20de%20agendar%20o%20procedimento%20de%20Extensão%20de%20Cílios." target="_blank" class="btn btn-outline btn-full" rel="noopener noreferrer">
                             <span>Agendar Cílios</span>
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
@@ -267,7 +259,7 @@
                             <li><i class="fa-solid fa-check"></i> Pigmentos naturais e de alta fixação</li>
                             <li><i class="fa-solid fa-check"></i> Pinçamento preciso e indolor</li>
                         </ul>
-                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20o%20procedimento%20de%20Design%20de%20Sobrancelhas." target="_blank" class="btn btn-outline btn-full" rel="noopener noreferrer">
+                        <a href="https://wa.me/5521974691398?text=Olá!%20Gostaria%20de%20agendar%20o%20procedimento%20de%20Design%20de%20Sobrancelhas." target="_blank" class="btn btn-outline btn-full" rel="noopener noreferrer">
                             <span>Agendar Sobrancelha</span>
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
@@ -288,7 +280,7 @@
                             <li><i class="fa-solid fa-check"></i> Esmaltes importados de longa duração</li>
                             <li><i class="fa-solid fa-check"></i> Esterilização em autoclave</li>
                         </ul>
-                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20o%20serviço%20de%20Unhas." target="_blank" class="btn btn-outline btn-full" rel="noopener noreferrer">
+                        <a href="https://wa.me/5521974691398?text=Olá!%20Gostaria%20de%20agendar%20o%20serviço%20de%20Unhas." target="_blank" class="btn btn-outline btn-full" rel="noopener noreferrer">
                             <span>Agendar Unhas</span>
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
@@ -309,7 +301,7 @@
                             <li><i class="fa-solid fa-check"></i> Máscara calmante e hidratante</li>
                             <li><i class="fa-solid fa-check"></i> Adequado para todos os tipos de pele</li>
                         </ul>
-                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20uma%20Limpeza%20de%20Pele%20Profunda." target="_blank" class="btn btn-outline btn-full" rel="noopener noreferrer">
+                        <a href="https://wa.me/5521974691398?text=Olá!%20Gostaria%20de%20agendar%20uma%20Limpeza%20de%20Pele%20Profunda." target="_blank" class="btn btn-outline btn-full" rel="noopener noreferrer">
                             <span>Agendar Limpeza</span>
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
@@ -330,7 +322,7 @@
                             <li><i class="fa-solid fa-check"></i> Alívio imediato do estresse mental</li>
                             <li><i class="fa-solid fa-check"></i> Redução de medidas e retenção</li>
                         </ul>
-                        <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20uma%20sessão%20de%20Massagem." target="_blank" class="btn btn-outline btn-full" rel="noopener noreferrer">
+                        <a href="https://wa.me/5521974691398?text=Olá!%20Gostaria%20de%20agendar%20uma%20sessão%20de%20Massagem." target="_blank" class="btn btn-outline btn-full" rel="noopener noreferrer">
                             <span>Agendar Massagem</span>
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
@@ -804,7 +796,7 @@
                             <div class="contact-icon-box"><i class="fa-solid fa-phone"></i></div>
                             <div>
                                 <h4>WhatsApp / Telefone</h4>
-                                <p><a href="https://wa.me/5521977226901">(21) 97722-6901</a></p>
+                                <p><a href="https://wa.me/5521974691398">(21) 97469-1398</a></p>
                             </div>
                         </li>
                         <li>
@@ -819,8 +811,8 @@
                     <div class="social-links-wrapper">
                         <h4>Siga-nos no Instagram</h4>
                         <div class="social-links">
-                            <a href="https://www.instagram.com/ciliosrecreio.lashes/" target="_blank" aria-label="Instagram" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="https://wa.me/5521977226901" target="_blank" aria-label="WhatsApp" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/srlashrecreio/" target="_blank" aria-label="Instagram" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://wa.me/5521974691398" target="_blank" aria-label="WhatsApp" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
                         </div>
                     </div>
                 </div>
@@ -867,24 +859,41 @@
                 </div>
             </div>
 
+            <div class="designer-credit">
+                <div><p class="designer-label">Design do site por <a href="https://mscunha.cc" target="_blank" rel="noopener noreferrer">mscunha.cc</a></p><p class="designer-pitch">Sua marca transforma a beleza. Seu site pode transformar visitantes em clientes.</p><p class="designer-subtitle">Sites para studios, salões e profissionais de beleza que querem se destacar.</p></div>
+                <a class="designer-contact" data-designer-contact href="https://wa.me/5521998613487?text=Ol%C3%A1!%20Vi%20seu%20design%20no%20site%20SR%20LASH%20e%20quero%20um%20site%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Quero um site assim</a>
+            </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 SR LASH. Todos os direitos reservados. ciliosrecreio.com.br</p>
-                <p class="developer-credit">Desenvolvido por <a href="https://mscunha.site" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent); text-decoration: none; font-weight: 500; transition: color 0.2s;">mscunha.site</a></p>
+
             </div>
         </div>
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/5521977226901?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20no%20Sr.%20Lash." target="_blank" class="whatsapp-floating" aria-label="Falar no WhatsApp" rel="noopener noreferrer">
+    <a href="https://wa.me/5521974691398?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20no%20Sr.%20Lash." target="_blank" class="whatsapp-floating" aria-label="Falar no WhatsApp" rel="noopener noreferrer">
         <i class="fa-brands fa-whatsapp"></i>
         <span class="tooltip-text">Agende Agora</span>
     </a>
 
     <!-- Floating Instagram Button -->
-    <a href="https://instagram.com/ciliosrecreio.lashes" target="_blank" class="instagram-floating" aria-label="Nosso Instagram" rel="noopener noreferrer">
-        <i class="fa-brands fa-instagram"></i>
-        <span class="tooltip-text">Siga-nos</span>
-    </a>
+    <aside id="socialPreview" class="social-preview" aria-label="Prévias das redes sociais">
+        <div class="social-preview-heading"><span>SR LASH nas redes</span><button id="socialPreviewToggle" type="button" aria-controls="socialPreviewContent" aria-expanded="true" aria-label="Minimizar prévias das redes sociais"><span aria-hidden="true">−</span></button></div>
+        <div id="socialPreviewContent">
+            <div class="social-tabs" aria-label="Selecionar rede social">
+                <button type="button" data-social="instagramPanel" aria-controls="instagramPanel" aria-pressed="true"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</button>
+                <button type="button" data-social="tiktokPanel" aria-controls="tiktokPanel" aria-pressed="false"><i class="fa-brands fa-tiktok" aria-hidden="true"></i> TikTok</button>
+            </div>
+            <div class="social-panel" id="instagramPanel">
+                <iframe src="https://www.instagram.com/srlashrecreio/embed/" title="Prévia do Instagram de SR LASH" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                <a href="https://www.instagram.com/srlashrecreio/" target="_blank" rel="noopener noreferrer">Ver @srlashrecreio <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
+            <div class="social-panel" id="tiktokPanel" hidden>
+                <iframe data-src="https://www.tiktok.com/player/v1/7502631758718913797?autoplay=0" title="Vídeo de Sueny Reis no TikTok" loading="lazy" allow="fullscreen; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                <a href="https://www.tiktok.com/@suenyreisoficial/video/7502631758718913797" target="_blank" rel="noopener noreferrer">Ver vídeo no TikTok <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </aside>
 
     <!-- Lightbox for Gallery (Modal) -->
     <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Foto da galeria" aria-hidden="true">
@@ -894,6 +903,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="script.js?v=20261008-2"></script>
+    <script src="script.js?v=20261008-6"></script>
 </body>
 </html>
