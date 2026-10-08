@@ -13,9 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupFaq();
     setupHeroVideo();
     setupSocialPreview();
-    const rail = document.querySelector('.ticker-track');
-    document.getElementById('photoRailPrev').addEventListener('click', () => rail.scrollBy({left:-380, behavior:reducedMotion.matches ? 'auto' : 'smooth'}));
-    document.getElementById('photoRailNext').addEventListener('click', () => rail.scrollBy({left:380, behavior:reducedMotion.matches ? 'auto' : 'smooth'}));
+    setupPhotoRail();
     setupCarousel('.testimonial-card', '.dot', null, null, 6000);
     setupCarousel('.insta-slide', null, '#instaPrev', '#instaNext', 5000);
     document.querySelectorAll('video').forEach(video => {
@@ -204,6 +202,40 @@ function setupCarousel(selector, dotSelector, previousSelector, nextSelector, in
     document.addEventListener('visibilitychange', start);
     reducedMotion.addEventListener('change', start);
     show(0); start();
+}
+
+function setupPhotoRail() {
+    const rail = document.querySelector('.ticker-track');
+    const wrapper = document.querySelector('.hero-services-ticker');
+    const previous = document.getElementById('photoRailPrev');
+    const next = document.getElementById('photoRailNext');
+    let timer;
+    const step = () => rail.querySelector('img').getBoundingClientRect().width + 16;
+    function move(direction) {
+        const end = rail.scrollWidth - rail.clientWidth;
+        const target = direction > 0 && rail.scrollLeft >= end - 3 ? 0 : direction < 0 && rail.scrollLeft <= 3 ? end : rail.scrollLeft + direction * step();
+        rail.scrollTo({left:target, behavior:reducedMotion.matches ? 'auto' : 'smooth'});
+    }
+    function stop() { clearInterval(timer); }
+    function start() {
+        stop();
+        if (!reducedMotion.matches && !document.hidden && !wrapper.matches(':hover') && !wrapper.contains(document.activeElement)) {
+            timer = setInterval(() => {
+                if (document.getElementById('lightboxModal').getAttribute('aria-hidden') === 'true') move(1);
+            }, 3000);
+        }
+    }
+    previous.addEventListener('click', () => { move(-1); start(); });
+    next.addEventListener('click', () => { move(1); start(); });
+    wrapper.addEventListener('mouseenter', stop);
+    wrapper.addEventListener('mouseleave', start);
+    wrapper.addEventListener('focusin', stop);
+    wrapper.addEventListener('focusout', () => queueMicrotask(start));
+    wrapper.addEventListener('touchstart', stop, {passive:true});
+    wrapper.addEventListener('touchend', start, {passive:true});
+    document.addEventListener('visibilitychange', start);
+    reducedMotion.addEventListener('change', start);
+    start();
 }
 
 function setupHeroVideo() {
